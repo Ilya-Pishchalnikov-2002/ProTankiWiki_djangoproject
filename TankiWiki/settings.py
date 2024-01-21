@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'main',
     'django_cleanup.apps.CleanupConfig'
 ]
 
@@ -77,7 +78,7 @@ WSGI_APPLICATION = 'TankiWiki.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'TankiWiki_db',
+        'NAME': 'tankiwiki_db',
         'USER': 'root',
         'PASSWORD': '-',
         'HOST': 'localhost',

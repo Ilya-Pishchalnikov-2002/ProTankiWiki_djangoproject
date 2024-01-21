@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Главная типа{% endblock %}
+
+{% block add_css %}<link rel="stylesheet" href="{% static 'main/css/homepage_style.css' %}">{% endblock %}
+
+{% block content %}
+<header>
+    <img src="{% static 'main/img/Logo_small.png' %}" alt="Logotip" height="50px">
+</header>
+<main>
+    <h1>Энциклопедия по игре ProTanki Online</h1>
+</main>
+{% endblock %}
