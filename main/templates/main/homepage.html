@@ -3,13 +3,34 @@
 
 {% block title %}Главная типа{% endblock %}
 
-{% block add_css %}<link rel="stylesheet" href="{% static 'main/css/homepage_style.css' %}">{% endblock %}
+{% block add_css %}<link rel="stylesheet" href="{% static 'main/css/homepage_style.css' %}">
+<style>
+body {
+    margin: 0px;
+    background-image: url({% static 'main/img/tanki_bg.jpg' %});
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>{% endblock %}
 
 {% block content %}
 <header>
     <img src="{% static 'main/img/Logo_small.png' %}" alt="Logotip" height="50px">
 </header>
 <main>
-    <h1>Энциклопедия по игре ProTanki Online</h1>
+    <h1 id="title">Энциклопедия по игре ProTanki Online</h1>
+
+    <div class="flex-menu" align="center">
+        <div class="flex-menu-item">
+            <p>aaa1</p>
+        </div>
+        <div class="flex-menu-item">
+            <p>aaa2</p>
+        </div>
+        <div class="flex-menu-item">
+            <p>aaa3</p>
+        </div>
+
+    </div>
 </main>
 {% endblock %}
