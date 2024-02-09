@@ -13,7 +13,6 @@ header img {
     bottom: 5px;
 }
 
-
 #title {
     text-align: center;
     font-family: Georgia, sans-serif;
@@ -45,4 +44,17 @@ header img {
     width: 260px;
     height: 180px;
     margin: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.flex-menu-item:hover {
+    transform: scale(1.1);
+}
+
+.flex-menu-text {
+    font-family: Georgia, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    margin: 6px;
 }
