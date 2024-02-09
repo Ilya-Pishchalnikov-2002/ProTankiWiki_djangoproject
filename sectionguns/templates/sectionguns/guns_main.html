@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Пушки{% endblock %}
+
+{% block add_css %}<link rel="stylesheet" href="{% static 'sectionguns/css/guns-main_style.css' %}">
+<style>
+body {
+    margin: 0px;
+    background-image: url({% static 'main/img/tanki_bg.jpg' %});
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>{% endblock %}
+
+{% block content %}
+<header>
+    <a href="/"><img src="{% static 'main/img/Logo_small.png' %}" alt="Logotip" height="50px"></a>
+</header>
+<main>
+    <h1 id="title">Пушки</h1>
+</main>
+{% endblock %}

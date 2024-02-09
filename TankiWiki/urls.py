@@ -7,5 +7,6 @@ admin.site.index_title = "Админка епта"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", views.HomePageView.as_view(), name="home")
+    path("", views.HomePageView.as_view(), name="home"),
+    path("guns/", include("sectionguns.urls"))
 ]
