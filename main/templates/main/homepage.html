@@ -21,20 +21,20 @@ body {
     <h1 id="title">Энциклопедия по игре ProTanki Online</h1>
 
     <div class="flex-menu" align="center">
-        <a href="{% url 'guns-main' %}">
-            <div class="flex-menu-item">
+        <a href="{% url 'guns-main' %}" class="flex-menu-item">
+            <div>
                 <img src="{% static 'main/img/icon_guns.png' %}" alt="icon_guns">
                 <p class="flex-menu-text">Пушки</p>
             </div>
         </a>
-        <a href="/">
-            <div class="flex-menu-item">
+        <a href="/"  class="flex-menu-item">
+            <div>
                 <img src="{% static 'main/img/icon_hulls.png' %}" alt="icon_hulls">
                 <p class="flex-menu-text">Корпуса</p>
             </div>
         </a>
-        <a href="/">
-            <div class="flex-menu-item">
+        <a href="/" class="flex-menu-item">
+            <div>
                 <img src="{% static 'main/img/icon_paints.png' %}" alt="icon_paints">
                 <p class="flex-menu-text">Краски</p>
             </div>
