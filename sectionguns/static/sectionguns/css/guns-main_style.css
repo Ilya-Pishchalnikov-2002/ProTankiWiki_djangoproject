@@ -26,7 +26,7 @@ header img {
 
 .flex-menu {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-around;
     width: 90%;
     padding: 25px;
