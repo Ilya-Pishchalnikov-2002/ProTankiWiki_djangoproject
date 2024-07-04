@@ -33,7 +33,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
-    'sectionguns',
+    'sectioncannons',
+    'sectionhulls',
+    'sectionpaints',
+    'sectionranks',
     'django_cleanup.apps.CleanupConfig'
 ]
 
