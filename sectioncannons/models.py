@@ -41,15 +41,18 @@ class CannonCommonInfo(models.Model):
     """ Родительский класс, содержащий несколько общих полей, которые будут во всех дочерних """
     cannon = models.ForeignKey(Cannon, on_delete=models.DO_NOTHING, verbose_name="Пушка")
     modification = models.CharField(verbose_name="Модификация", max_length=2, choices=M_LIST)
+    image = models.ImageField(upload_to="Cannons", verbose_name="Изображение", null=True)
     rank_required = models.ForeignKey(Rank, on_delete=models.DO_NOTHING, verbose_name="Требуемое звание")
     cost = models.IntegerField(verbose_name="Стоимость")
 
     class Meta:
         abstract = True
 
+    def __str__(self):
+        return f"{self.cannon.name} {self.modification}"
+
 
 class Smoki(CannonCommonInfo):
-    image = models.ImageField(upload_to="Cannons-Smoki", verbose_name="Изображение")
     damage_min = models.SmallIntegerField(verbose_name="Урон (мин)")
     damage_max = models.SmallIntegerField(verbose_name="Урон (макс)")
     impact_force = models.DecimalField(verbose_name="Сила удара", max_digits=5, decimal_places=2)
@@ -66,12 +69,8 @@ class Smoki(CannonCommonInfo):
         verbose_name = "Смоки"
         verbose_name_plural = "Смоки"
 
-    def __str__(self):
-        return f"{self.cannon.name} {self.modification}"
-
 
 class Firebird(CannonCommonInfo):
-    image = models.ImageField(upload_to="Cannons-Firebird", verbose_name="Изображение")
     damage_hp_sec = models.SmallIntegerField(verbose_name="Урон (хп/сек)")
     reload_speed = models.DecimalField(verbose_name="Перезарядка", max_digits=4, decimal_places=2)
     attack_duration = models.DecimalField(verbose_name="Длительность атаки", max_digits=3, decimal_places=2)
@@ -84,6 +83,3 @@ class Firebird(CannonCommonInfo):
     class Meta:
         verbose_name = "Огнемёт"
         verbose_name_plural = "Огнемёт"
-
-    def __str__(self):
-        return f"{self.cannon.name} {self.modification}"
