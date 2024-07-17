@@ -29,16 +29,16 @@ class Cannon(models.Model):
         return f"{self.name}"
 
 
-M_LIST = [
-    ("M0", "M0"),
-    ("M1", "M1"),
-    ("M2", "M2"),
-    ("M3", "M3")
-]
-
-
 class CannonCommonInfo(models.Model):
     """ Родительский класс, содержащий несколько общих полей, которые будут во всех дочерних """
+
+    M_LIST = [
+        ("M0", "M0"),
+        ("M1", "M1"),
+        ("M2", "M2"),
+        ("M3", "M3")
+    ]
+
     cannon = models.ForeignKey(Cannon, on_delete=models.DO_NOTHING, verbose_name="Пушка")
     modification = models.CharField(verbose_name="Модификация", max_length=2, choices=M_LIST)
     image = models.ImageField(upload_to="Cannons", verbose_name="Изображение", null=True)
@@ -78,7 +78,7 @@ class Firebird(CannonCommonInfo):
     max_dmg_range = models.DecimalField(verbose_name="Дальность макс поражения", max_digits=4, decimal_places=2)
     min_dmg_range = models.DecimalField(verbose_name="Дальность мин поражения", max_digits=4, decimal_places=2)
     weak_dmg_percent = models.SmallIntegerField(verbose_name="Процент слабого поражения")
-    burning_time = models.DecimalField(verbose_name="Время горения", max_digits=3, decimal_places=1)
+    burning_damage = models.DecimalField(verbose_name="Урон от горения", max_digits=3, decimal_places=1)
 
     class Meta:
         verbose_name = "Огнемёт"

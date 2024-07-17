@@ -22,7 +22,7 @@ class SmokiAdmin(admin.ModelAdmin):
 class FirebirdAdmin(admin.ModelAdmin):
     list_display = ["modification", "image", "rank_required", "cost",
                     "damage_hp_sec", "reload_speed", "attack_duration", "rotation_speed",
-                    "max_dmg_range", "min_dmg_range", "weak_dmg_percent", "burning_time"]
+                    "max_dmg_range", "min_dmg_range", "weak_dmg_percent", "burning_damage"]
     ordering = ["modification"]
 
 
