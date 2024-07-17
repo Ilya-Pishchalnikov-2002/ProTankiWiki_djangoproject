@@ -55,3 +55,45 @@ class HullCommonInfo(models.Model):
 
     def __str__(self):
         return f"{self.hull.name} {self.modification}"
+
+
+class Hunter(HullCommonInfo):
+    class Meta:
+        verbose_name = "Хантер"
+        verbose_name_plural = "Хантер"
+
+
+class Vasp(HullCommonInfo):
+    class Meta:
+        verbose_name = "Васп"
+        verbose_name_plural = "Васп"
+
+
+class Titan(HullCommonInfo):
+    class Meta:
+        verbose_name = "Титан"
+        verbose_name_plural = "Титан"
+
+
+class Dictator(HullCommonInfo):
+    class Meta:
+        verbose_name = "Диктатор"
+        verbose_name_plural = "Диктатор"
+
+
+class Hornet(HullCommonInfo):
+    class Meta:
+        verbose_name = "Хорнет"
+        verbose_name_plural = "Хорнет"
+
+
+class Mammoth(HullCommonInfo):
+    class Meta:
+        verbose_name = "Мамонт"
+        verbose_name_plural = "Мамонт"
+
+
+class Viking(HullCommonInfo):
+    class Meta:
+        verbose_name = "Викинг"
+        verbose_name_plural = "Викинг"
