@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'sectionhulls',
     'sectionpaints',
     'sectionranks',
+    'sectionkits',
     'django_cleanup.apps.CleanupConfig'
 ]
 
