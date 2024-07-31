@@ -10,6 +10,7 @@ body {
     background-image: url({% static 'main/img/tanki_bg.jpg' %});
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
 </style>{% endblock %}
 
@@ -20,10 +21,73 @@ body {
 <main>
     <h1 id="title">Пушки</h1>
 
-    <div class="flex-menu" align="center">
-        <div class="flex-menu-item">
-            text
+    <div class="menu">
+        <p class="text">Оружие в «ProTanki» играет важную роль. В зависимости от того, какую пушку вы выберете, будет зависеть ваш индивидуальный стиль игры: стремительные и молниеносные атаки либо огонь из защищенных позиций.</p>
+
+        <hr>
+        <h1 class="text_section">Ближний бой</h1>
+        <hr>
+
+        <div class="flex-section">
+            {% for cannon in close_combat %}
+            <a class="section-item">
+                <div align="center">
+                    <h2 class="section-item-name">{{ cannon.name }}</h2>
+                    <br>
+                    <img src="{{ cannon.image.url }}">
+                </div>
+            </a>
+            {% endfor %}
         </div>
+
+        <hr>
+        <h1 class="text_section">Малая дальность</h1>
+        <hr>
+
+        <div class="flex-section">
+            {% for cannon in short_range %}
+            <a class="section-item">
+                <div align="center">
+                    <h2 class="section-item-name">{{ cannon.name }}</h2>
+                    <br>
+                    <img src="{{ cannon.image.url }}">
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+        <hr>
+        <h1 class="text_section">Средняя дальность</h1>
+        <hr>
+
+        <div class="flex-section">
+            {% for cannon in medium_range %}
+            <a class="section-item">
+                <div align="center">
+                    <h2 class="section-item-name">{{ cannon.name }}</h2>
+                    <br>
+                    <img src="{{ cannon.image.url }}">
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+        <hr>
+        <h1 class="text_section">Большая дальность</h1>
+        <hr>
+
+        <div class="flex-section">
+            {% for cannon in long_range %}
+            <a class="section-item">
+                <div align="center">
+                    <h2 class="section-item-name">{{ cannon.name }}</h2>
+                    <br>
+                    <img src="{{ cannon.image.url }}">
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
     </div>
 </main>
 {% endblock %}
