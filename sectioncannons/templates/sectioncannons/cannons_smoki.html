@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Смоки{% endblock %}
+
+{% block add_css %}<link rel="stylesheet" href="{% static 'sectioncannons/css/cannons-detail_style.css' %}">
+<style>
+body {
+    margin: 0px;
+    background-image: url({% static 'main/img/tanki_bg.jpg' %});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+</style>{% endblock %}
+
+{% block content %}
+<header>
+    <a href="/"><img src="{% static 'main/img/Logo_small.png' %}" alt="Logotip" height="50px"></a>
+</header>
+<main>
+    <h1 id="title">Смоки</h1>
+
+    <div class="menu">
+        <hr>
+        <h2 class="text_section">Описание пушки</h2>
+        <hr>
+
+        <p class="text">Стрелковая пушка для боя на средней дальности. Имеет мгновенную доставку урона, разброс урона, ограниченную дальность максимального поражения и линейное падение урона. За пределами дистанции минимального поражения наносит урон не в полном объёме. Попадание по цели наносит ей урон и воздействует на танк физически. Имеется шанс совершить критический выстрел, урон которого превышает стандартный и не падает с расстоянием. Обладает вертикальной автонаводкой.</p>
+
+        <p class="text"><b>Описание в гараже:</b><br>
+            Среднекалиберная танковая пушка. В основном устанавливается на лёгкие истребительные и учебные танки. Получила распространение из-за дешевизны и простоты обслуживания. Установите её на быстрый корпус и, шныряя между ошарашенными врагами, берите тяжёлые неповоротливые танки на измор. Разработанные апгрейды способны существенно увеличить убойную силу этой малышки. Стоит помнить, что урон этой пушки падает на расстоянии.</p>
+
+		<hr>
+        <h2 class="text_section">Таблица характеристик пушки</h2>
+        <hr>
+        <br>
+
+        <table align="center">
+            <thead>
+                <tr>
+                    <th>Модификация</th>
+                    <td>М0</td>
+                    <td>М1</td>
+                    <td>М2</td>
+                    <td>М3</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Изображение</th>
+                    {% for c in cannon_modifications %}
+                    <td><img src="{{ c.image.url }}" width="90%"></td>
+                    {% endfor %}
+                </tr>
+				<tr>
+					<th>Требуемое звание</th>
+					{% for c in cannon_modifications %}
+					<td><a href="{{ c.rank_required.slug_name }}"><img src="{{ c.rank_required.rank_icon.url }}" title="{{ c.rank_required.rank_name }}"></a></td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th>Стоимость</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.cost }} <img src="{% static 'main/img/small_icons/cry.png' %}" title="Кристаллов"></td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th><img class="icon" src="{% static 'main/img/small_icons/dmg.png' %}"> Урон (минимальный)</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.damage_min }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th><img class="icon" src="{% static 'main/img/small_icons/dmg.png' %}"> Урон (максимальный)</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.damage_max }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th><img class="icon" src="{% static 'main/img/small_icons/impact.png' %}"> Сила удара</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.impact_force }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th>Отдача</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.recoil_force }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th><img class="icon" src="{% static 'main/img/small_icons/reloading.png' %}"> Перезарядка (сек)</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.reload_speed }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th><img class="icon" src="{% static 'main/img/small_icons/rotation.png' %}"> Скорость поворота (град/сек)</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.rotation_speed }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th>Дальность макс. поражения</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.max_dmg_range }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th><img class="icon" src="{% static 'main/img/small_icons/range.png' %}"> Дальность мин. поражения</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.min_dmg_range }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th><img class="icon" src="{% static 'main/img/small_icons/dmg_percent.png' %}"> Процент слабого поражения</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.weak_dmg_percent }}%</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th><img class="icon" src="{% static 'main/img/small_icons/crit_chance.png' %}"> Шанс критического урона</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.critical_chance }}%</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th><img class="icon" src="{% static 'main/img/small_icons/crit_dmg.png' %}"> Критический урон</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.critical_damage }}</td>
+					{% endfor %}
+				</tr>
+            </tbody>
+        </table>
+		
+		<br>
+		<hr>
+		<h2 class="text_section">Краски с защитой от Смоки</h2>
+		<hr>
+
+		<hr>
+		<h2 class="text_section">Комплекты, содержащие Смоки</h2>
+		<hr>
+		
+    </div>
+</main>
+{% endblock %}

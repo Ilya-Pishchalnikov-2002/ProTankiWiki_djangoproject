@@ -23,16 +23,17 @@ body {
 
     <div class="menu">
         <p class="text">Оружие в «ProTanki» играет важную роль. В зависимости от того, какую пушку вы выберете, будет зависеть ваш индивидуальный стиль игры: стремительные и молниеносные атаки либо огонь из защищенных позиций.</p>
+        <p class="text">При этом понравившееся оружие можно модернизировать. Все пушки имеют четыре модификации: от самой слабой до самой сильной (от M0 до M3). Соответственно, цена самой младшей модификации невысока. Вы сможете попробовать наиболее популярные тактики уже на младших званиях, не потратив большого количества кристаллов. Но получить сразу всё не получится. Ту или иную пушку и модификацию пушки можно купить только с определённого звания.</p>
 
         <hr>
-        <h1 class="text_section">Ближний бой</h1>
+        <h2 class="text_section">Ближний бой</h2>
         <hr>
 
         <div class="flex-section">
             {% for cannon in close_combat %}
-            <a class="section-item">
+            <a class="section-item" href="/пушки/{{ cannon.slug_name }}">
                 <div align="center">
-                    <h2 class="section-item-name">{{ cannon.name }}</h2>
+                    <h3 class="section-item-name">{{ cannon.name }}</h3>
                     <br>
                     <img src="{{ cannon.image.url }}">
                 </div>
@@ -41,14 +42,14 @@ body {
         </div>
 
         <hr>
-        <h1 class="text_section">Малая дальность</h1>
+        <h2 class="text_section">Малая дальность</h2>
         <hr>
 
         <div class="flex-section">
             {% for cannon in short_range %}
-            <a class="section-item">
+            <a class="section-item" href="/пушки/{{ cannon.slug_name }}">
                 <div align="center">
-                    <h2 class="section-item-name">{{ cannon.name }}</h2>
+                    <h3 class="section-item-name">{{ cannon.name }}</h3>
                     <br>
                     <img src="{{ cannon.image.url }}">
                 </div>
@@ -57,14 +58,14 @@ body {
         </div>
 
         <hr>
-        <h1 class="text_section">Средняя дальность</h1>
+        <h2 class="text_section">Средняя дальность</h2>
         <hr>
 
         <div class="flex-section">
             {% for cannon in medium_range %}
-            <a class="section-item">
+            <a class="section-item" href="/пушки/{{ cannon.slug_name }}">
                 <div align="center">
-                    <h2 class="section-item-name">{{ cannon.name }}</h2>
+                    <h3 class="section-item-name">{{ cannon.name }}</h3>
                     <br>
                     <img src="{{ cannon.image.url }}">
                 </div>
@@ -73,14 +74,14 @@ body {
         </div>
 
         <hr>
-        <h1 class="text_section">Большая дальность</h1>
+        <h2 class="text_section">Большая дальность</h2>
         <hr>
 
         <div class="flex-section">
             {% for cannon in long_range %}
-            <a class="section-item">
+            <a class="section-item" href="/пушки/{{ cannon.slug_name }}">
                 <div align="center">
-                    <h2 class="section-item-name">{{ cannon.name }}</h2>
+                    <h3 class="section-item-name">{{ cannon.name }}</h3>
                     <br>
                     <img src="{{ cannon.image.url }}">
                 </div>

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.views import View
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect, Http404
-from sectioncannons.models import Cannon
+from sectioncannons.models import *
 
 
 class CannonsPageView(View):
@@ -17,4 +17,13 @@ class CannonsPageView(View):
                 "medium_range": cannons_meduim,
                 "long_range": cannons_long}
 
-        return render(request, "sectionguns/cannons_main.html", context=data)
+        return render(request, "sectioncannons/cannons_main.html", context=data)
+
+
+class SmokiPageView(View):
+    def get(self, request):
+        cannon_modifications = Smoki.objects.all()
+
+        data = {"cannon_modifications": cannon_modifications}
+
+        return render(request, "sectioncannons/cannons_smoki.html", context=data)

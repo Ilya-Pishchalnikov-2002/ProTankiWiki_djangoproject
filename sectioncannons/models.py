@@ -2,6 +2,10 @@ from django.db import models
 from django.utils.text import slugify
 from sectionranks.models import Rank
 
+__all__ = [
+    "Cannon", "Smoki", "Firebird", "Twins", "Hammer", "Railgun", "Isida", "Vulcan", "Thunder", "Freeze",
+    "Ricochet", "Shaft"]
+
 
 class Cannon(models.Model):
     CATEGORY_LIST = [
