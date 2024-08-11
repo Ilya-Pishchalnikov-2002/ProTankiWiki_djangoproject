@@ -19,7 +19,6 @@ class Cannon(models.Model):
     slug_name = models.SlugField(max_length=10, unique=True, blank=True)
     image = models.ImageField(upload_to="Cannons", verbose_name="Изображение")
     category = models.CharField(verbose_name="Категория", max_length=20, choices=CATEGORY_LIST)
-    description = models.TextField(verbose_name="Описание", null=True, blank=True)
 
     class Meta:
         verbose_name = "Пушка"

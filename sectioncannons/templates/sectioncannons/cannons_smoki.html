@@ -160,6 +160,7 @@ body {
 			{% for kit in kits %}
 			<div class="section-item-kits">
 				<h3 class="section-item-name">{{ kit.name }}</h3>
+				<hr>
 				<div class="inner-wrapper">
 					<div class="img_wrapper" align="center">
 						<img src="{{ kit.image.url }}"><br>
@@ -170,6 +171,7 @@ body {
 						<p><a class="section-item-kits-text" href="/краски/{{ kit.paint.slug_name }}">{{ kit.paint.name }}</a></p>
 					</div>
 				</div>
+				<hr>
 				<div class="inner-wrapper">
 					<div>
 						<p class="section-item-kits-text">{{ kit.cost }} <img src="{% static 'main/img/small_icons/cry.png' %}" title="Кристаллов"></p>
@@ -178,6 +180,7 @@ body {
 						<p class="section-item-kits-discount">-{{ kit.discount }}%</p>
 					</div>
 				</div>
+				<hr>
 				<div class="inner-wrapper">
 					<img src="{{ kit.rank_start.rank_icon.url }}" title="{{ kit.rank_start.rank_name }}" width="30px">
 					<p class="section-item-kits-text"><b>-</b></p>

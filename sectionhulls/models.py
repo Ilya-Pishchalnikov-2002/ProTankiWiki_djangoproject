@@ -14,7 +14,6 @@ class Hull(models.Model):
     slug_name = models.SlugField(max_length=10, unique=True, blank=True)
     image = models.ImageField(upload_to="Hulls", verbose_name="Изображение")
     category = models.CharField(verbose_name="Категория", max_length=7, choices=CATEGORY_LIST)
-    description = models.TextField(verbose_name="Описание", null=True, blank=True)
 
     class Meta:
         verbose_name = "Корпус"
