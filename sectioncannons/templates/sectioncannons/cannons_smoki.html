@@ -50,13 +50,13 @@ body {
                 <tr>
                     <th>Изображение</th>
                     {% for c in cannon_modifications %}
-                    <td><img src="{{ c.image.url }}" width="90%"></td>
+                    <td><img src="{{ c.image.url }}" width="85%"></td>
                     {% endfor %}
                 </tr>
 				<tr>
 					<th>Требуемое звание</th>
 					{% for c in cannon_modifications %}
-					<td><a href="{{ c.rank_required.slug_name }}"><img src="{{ c.rank_required.rank_icon.url }}" title="{{ c.rank_required.rank_name }}"></a></td>
+					<td><a href="/звания/{{ c.rank_required.slug_name }}"><img src="{{ c.rank_required.rank_icon.url }}" title="{{ c.rank_required.rank_name }}"></a></td>
 					{% endfor %}
 				</tr>
 				<tr>
@@ -139,10 +139,54 @@ body {
 		<h2 class="text_section">Краски с защитой от Смоки</h2>
 		<hr>
 
+		<div class="flex-section">
+			{% for paint in resist_paints %}
+			<a class="section-item" href="/краски/{{ paint.slug_name }}">
+				<h3 class="section-item-name">{{ paint.name }}</h3>
+				<div class="img_wrapper" align="center">
+					<img src="{{ paint.image_icon.url }}"><br>
+				</div>
+				<h6 class="section-item-name"><img class="icon" src="{% static 'main/img/small_icons/resist_smoky.png' %}">
+					{{ paint.resist_smoky }}%</h6>
+			</a>
+			{% endfor %}
+		</div>
+
 		<hr>
 		<h2 class="text_section">Комплекты, содержащие Смоки</h2>
 		<hr>
-		
+
+		<div class="flex-section-kits">
+			{% for kit in kits %}
+			<div class="section-item-kits">
+				<h3 class="section-item-name">{{ kit.name }}</h3>
+				<div class="inner-wrapper">
+					<div class="img_wrapper" align="center">
+						<img src="{{ kit.image.url }}"><br>
+					</div>
+					<div>
+						<p><a class="section-item-kits-text" href="/пушки/{{ kit.cannon.slug_name }}">{{ kit.cannon.name }} {{ kit.cannon_modification }}</a></p>
+						<p><a class="section-item-kits-text" href="/корпуса/{{ kit.hull.slug_name }}">{{ kit.hull.name }} {{ kit.hull_modification }}</a></p>
+						<p><a class="section-item-kits-text" href="/краски/{{ kit.paint.slug_name }}">{{ kit.paint.name }}</a></p>
+					</div>
+				</div>
+				<div class="inner-wrapper">
+					<div>
+						<p class="section-item-kits-text">{{ kit.cost }} <img src="{% static 'main/img/small_icons/cry.png' %}" title="Кристаллов"></p>
+					</div>
+					<div>
+						<p class="section-item-kits-discount">-{{ kit.discount }}%</p>
+					</div>
+				</div>
+				<div class="inner-wrapper">
+					<img src="{{ kit.rank_start.rank_icon.url }}" title="{{ kit.rank_start.rank_name }}" width="30px">
+					<p class="section-item-kits-text"><b>-</b></p>
+					<img src="{{ kit.rank_end.rank_icon.url }}" title="{{ kit.rank_end.rank_name }}" width="30px">
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+
     </div>
 </main>
 {% endblock %}

@@ -2,7 +2,10 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.views import View
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect, Http404
+from django.db.models import Q
 from sectioncannons.models import *
+from sectionpaints.models import Paint
+from sectionkits.models import TankKit
 
 
 class CannonsPageView(View):
@@ -23,7 +26,13 @@ class CannonsPageView(View):
 class SmokiPageView(View):
     def get(self, request):
         cannon_modifications = Smoki.objects.all()
+        resist_paints = Paint.objects.filter(Q(resist_smoky__isnull=False) &
+                                             Q(resist_all__isnull=True)).order_by('resist_smoky')
 
-        data = {"cannon_modifications": cannon_modifications}
+        kits = TankKit.objects.filter(cannon="4")
+
+        data = {"cannon_modifications": cannon_modifications,
+                "resist_paints": resist_paints,
+                "kits": kits}
 
         return render(request, "sectioncannons/cannons_smoki.html", context=data)
