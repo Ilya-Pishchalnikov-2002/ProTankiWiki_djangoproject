@@ -76,6 +76,10 @@ header img {
     background-color: rgba(180, 180, 180, 0.2);
 }
 
+.section-item:active {
+    background-color: rgba(180, 180, 180, 0.4);
+}
+
 .section-item-name {
     font-size: 24px;
     font-family: Arial, sans-serif;

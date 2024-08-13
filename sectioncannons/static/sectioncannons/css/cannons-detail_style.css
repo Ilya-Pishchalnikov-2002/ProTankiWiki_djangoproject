@@ -105,6 +105,10 @@ td {
     background-color: rgba(180, 180, 180, 0.2);
 }
 
+.section-item:active {
+    background-color: rgba(180, 180, 180, 0.4);
+}
+
 .section-item-name {
     font-size: 20px;
     font-family: Arial, sans-serif;
@@ -148,7 +152,26 @@ td {
     color: white;
     text-align: left;
     text-decoration-line: none;
-    margin: 12px;
+    margin: 10px;
+}
+
+.section-item-kits-link {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: left;
+    text-decoration-line: none;
+    margin: 8px;
+    transition-property: color;
+}
+
+.section-item-kits-link:hover {
+    color: rgb(34, 81, 212);
+}
+
+.section-item-kits-link:active {
+    color: rgb(54, 105, 249);
 }
 
 .section-item-kits-discount {

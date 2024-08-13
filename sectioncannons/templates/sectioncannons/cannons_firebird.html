@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Огнемёт{% endblock %}
+
+{% block add_css %}<link rel="stylesheet" href="{% static 'sectioncannons/css/cannons-detail_style.css' %}">
+<style>
+body {
+    margin: 0px;
+    background-image: url({% static 'main/img/tanki_bg.jpg' %});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+</style>{% endblock %}
+
+{% block content %}
+{% include "main/includes_header.html" %}
+<main>
+    <h1 id="title">Огнемёт</h1>
+
+    <div class="menu">
+        <hr>
+        <h2 class="text_section">Описание пушки</h2>
+        <hr>
+
+		<p class="text">Баллонная пушка ближнего боя. Имеет ограниченную дальность поражения и линейное падение урона в зависимости от расстояния. Цели, находящиеся в пределах конуса поражения, получают прямой урон. Воздействие огня способно разморозить замороженные танки. Струя огня блокируется препятствиями, другими танками и трупами танков.</p>
+
+        <p class="text"><b>Описание в гараже:</b><br>
+			В тесных городских кварталах, когда картина боя напоминает скорее муравейник, нет лучшего оружия, чем Огнемёт. Огнемёт является этаким оружием массового поражения для ближнего боя. Высокая температура горения смеси позволит быстро поджечь экипаж танка зазевавшегося противника, после чего скрыться за углом, пока враг догорает. Идеальное оружие против медленных танков в условиях ограниченного пространства. Из недостатков можно отметить сравнительно долгое время перезарядки, однако стрелять можно и из частично перезаряженного оружия.</p>
+
+		<hr>
+        <h2 class="text_section">Таблица характеристик пушки</h2>
+        <hr>
+        <br>
+
+        <table align="center">
+            <thead>
+                <tr>
+                    <th>Модификация</th>
+                    <td>М0</td>
+                    <td>М1</td>
+                    <td>М2</td>
+                    <td>М3</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Изображение</th>
+                    {% for c in cannon_modifications %}
+                    <td><img src="{{ c.image.url }}" width="85%"></td>
+                    {% endfor %}
+                </tr>
+				<tr>
+					<th>Требуемое звание</th>
+					{% for c in cannon_modifications %}
+					<td><a href="/звания/{{ c.rank_required.slug_name }}"><img src="{{ c.rank_required.rank_icon.url }}" title="{{ c.rank_required.rank_name }}"></a></td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th>Стоимость</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.cost }} <img src="{% static 'main/img/small_icons/cry.png' %}" title="Кристаллов"></td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th><img class="icon" src="{% static 'main/img/small_icons/dmg.png' %}"> Урон (хп/сек)</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.damage_hp_sec }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th><img class="icon" src="{% static 'main/img/small_icons/reloading.png' %}"> Перезарядка (сек)</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.reload_speed }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th>Длительность атаки (сек)</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.attack_duration }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th><img class="icon" src="{% static 'main/img/small_icons/rotation.png' %}"> Скорость поворота (град/сек)</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.rotation_speed }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th>Дальность макс. поражения</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.max_dmg_range }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th><img class="icon" src="{% static 'main/img/small_icons/range.png' %}"> Дальность мин. поражения</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.min_dmg_range }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th><img class="icon" src="{% static 'main/img/small_icons/dmg_percent.png' %}"> Процент слабого поражения</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.weak_dmg_percent }}%</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th><img class="icon" src="{% static 'main/img/small_icons/burn.png' %}"> Урон от горения</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.burning_damage }}</td>
+					{% endfor %}
+				</tr>
+            </tbody>
+        </table>
+		
+		<br>
+		<hr>
+		<h2 class="text_section">Краски с защитой от Огнемёта</h2>
+		<hr>
+
+		<div class="flex-section">
+			{% for paint in resist_paints %}
+			<a class="section-item" href="/краски/{{ paint.slug_name }}">
+				<h3 class="section-item-name">{{ paint.name }}</h3>
+				<div class="img_wrapper" align="center">
+					<img src="{{ paint.image_icon.url }}"><br>
+				</div>
+				<h6 class="section-item-name"><img class="icon" src="{% static 'main/img/small_icons/resist_firebird.png' %}">
+					{{ paint.resist_firebird }}%</h6>
+			</a>
+			{% endfor %}
+		</div>
+
+		<hr>
+		<h2 class="text_section">Комплекты, содержащие Огнемёт</h2>
+		<hr>
+
+		{% include "sectioncannons/includes_section_kits.html" %}
+
+    </div>
+</main>
+{% endblock %}

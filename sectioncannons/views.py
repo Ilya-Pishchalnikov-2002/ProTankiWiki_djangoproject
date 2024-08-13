@@ -36,3 +36,33 @@ class SmokiPageView(View):
                 "kits": kits}
 
         return render(request, "sectioncannons/cannons_smoki.html", context=data)
+
+
+class FirebirdPageView(View):
+    def get(self, request):
+        cannon_modifications = Firebird.objects.all()
+        resist_paints = Paint.objects.filter(Q(resist_firebird__isnull=False) &
+                                             Q(resist_all__isnull=True)).order_by('resist_firebird')
+
+        kits = TankKit.objects.filter(cannon="5")
+
+        data = {"cannon_modifications": cannon_modifications,
+                "resist_paints": resist_paints,
+                "kits": kits}
+
+        return render(request, "sectioncannons/cannons_firebird.html", context=data)
+
+
+class TwinsPageView(View):
+    def get(self, request):
+        cannon_modifications = Twins.objects.all()
+        resist_paints = Paint.objects.filter(Q(resist_twins__isnull=False) &
+                                             Q(resist_all__isnull=True)).order_by('resist_twins')
+
+        kits = TankKit.objects.filter(cannon="6")
+
+        data = {"cannon_modifications": cannon_modifications,
+                "resist_paints": resist_paints,
+                "kits": kits}
+
+        return render(request, "sectioncannons/cannons_twins.html", context=data)
