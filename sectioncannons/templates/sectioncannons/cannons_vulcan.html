@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Твинс{% endblock %}
+{% block title %}Вулкан{% endblock %}
 
 {% block add_css %}<link rel="stylesheet" href="{% static 'sectioncannons/css/cannons-detail_style.css' %}">
 <style>
@@ -17,17 +17,17 @@ body {
 {% block content %}
 {% include "main/includes_header.html" %}
 <main>
-    <h1 id="title">Твинс</h1>
+    <h1 id="title">Вулкан</h1>
 
     <div class="menu">
         <hr>
         <h2 class="text_section">Описание пушки</h2>
         <hr>
 
-		<p class="text">Стрелковая пушка для боя на малой дальности. Имеет разброс урона, ограниченную дальность максимального поражения и линейное падение урона. Не наносит урон за пределами дистанции минимального поражения. Стреляет поочерёдно из двух стволов плазменными зарядами, обладающими своей постоянной скоростью полёта и физическим воздействием на цель. Очень быстро перезаряжается. Обладает вертикальной автонаводкой.</p>
+		<p class="text">Скорострельная пушка-пулемёт для боя на средней и дальней дистанциях. Она способна вести огонь бесконечно долго, но при продолжительной стрельбе начинает нагревать танк и наносить ему урон. Уникальной особенностью пушки является гироскоп. При раскрутке стволов Вулкан фиксируется в направлении выстрела. Сбить такой прицел очень сложно. Это первая пушка в игре, которая позволяет вам управлять корпусом, в то время как башня направлена в нужную сторону.</p>
 
         <p class="text"><b>Описание в гараже:</b><br>
-			Скорострельный двуствольный плазмомёт вмиг превратит врага в кучу расплавленного железа. Учитывая то, что попадание во вражеский танк сбивает ему прицел, это оружие идеально подходит для динамичного боя на средней дистанции.
+			Скорострельная пушка, отлично подходящая для боёв на средних и дальних дистанциях. Обладает уникальной системой управления, препятствующей сбиванию прицела даже под шквальным огнём противника. Помните, что продолжительная стрельба может привести к перегреву и повредить ваш танк!</p>
 
 		<hr>
         <h2 class="text_section">Таблица характеристик пушки</h2>
@@ -64,15 +64,9 @@ body {
 					{% endfor %}
 				</tr>
 				<tr>
-					<th><img class="icon" src="{% static 'main/img/small_icons/dmg.png' %}"> Урон (минимальный)</th>
+					<th><img class="icon" src="{% static 'main/img/small_icons/dmg.png' %}"> Урон (хп/сек)</th>
 					{% for c in cannon_modifications %}
-					<td>{{ c.damage_min }}</td>
-					{% endfor %}
-				</tr>
-				<tr>
-					<th><img class="icon" src="{% static 'main/img/small_icons/dmg.png' %}"> Урон (максимальный)</th>
-					{% for c in cannon_modifications %}
-					<td>{{ c.damage_max }}</td>
+					<td>{{ c.damage_hp_sec }}</td>
 					{% endfor %}
 				</tr>
 				<tr>
@@ -88,9 +82,33 @@ body {
 					{% endfor %}
 				</tr>
 				<tr>
-					<th><img class="icon" src="{% static 'main/img/small_icons/reloading.png' %}"> Перезарядка (сек)</th>
+					<th><img class="icon" src="{% static 'main/img/small_icons/reloading.png' %}"> Время до перегрева (сек)</th>
 					{% for c in cannon_modifications %}
-					<td>{{ c.reload_speed }}</td>
+					<td>{{ c.overheating_time }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th>Самонагрев</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.self_heating }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th>Ограничение на температуру</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.self_heat_limit }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th>Раскрутка стволов (сек)</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.barrel_spin_up_time }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th>Остановка стволов (сек)</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.barrel_spin_down_time }}</td>
 					{% endfor %}
 				</tr>
 				<tr>
@@ -100,9 +118,9 @@ body {
 					{% endfor %}
 				</tr>
 				<tr>
-					<th>Скорость снаряда (м/сек)</th>
+					<th>Замедление поворта при стрельбе</th>
 					{% for c in cannon_modifications %}
-					<td>{{ c.projectile_speed }}</td>
+					<td>{{ c.rotation_deceleration }}%</td>
 					{% endfor %}
 				</tr>
 				<tr>
@@ -128,7 +146,7 @@ body {
 		
 		<br>
 		<hr>
-		<h2 class="text_section">Краски с защитой от Твинса</h2>
+		<h2 class="text_section">Краски с защитой от Вулкана</h2>
 		<hr>
 
 		<div class="flex-section">
@@ -138,14 +156,14 @@ body {
 				<div class="img_wrapper" align="center">
 					<img src="{{ paint.image_icon.url }}"><br>
 				</div>
-				<h6 class="section-item-name"><img class="icon" src="{% static 'main/img/small_icons/resist_twins.png' %}">
-					{{ paint.resist_twins }}%</h6>
+				<h6 class="section-item-name"><img class="icon" src="{% static 'main/img/small_icons/resist_vulcan.png' %}">
+					{{ paint.resist_vulcan }}%</h6>
 			</a>
 			{% endfor %}
 		</div>
 
 		<hr>
-		<h2 class="text_section">Комплекты, содержащие Твинс</h2>
+		<h2 class="text_section">Комплекты, содержащие Вулкан</h2>
 		<hr>
 
 		{% include "sectioncannons/includes_section_kits.html" %}

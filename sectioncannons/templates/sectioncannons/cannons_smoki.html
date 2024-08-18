@@ -76,6 +76,18 @@ body {
 					{% endfor %}
 				</tr>
 				<tr>
+					<th><img class="icon" src="{% static 'main/img/small_icons/crit_dmg.png' %}"> Критический урон</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.critical_damage }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th><img class="icon" src="{% static 'main/img/small_icons/crit_chance.png' %}"> Шанс критического урона</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.critical_chance }}%</td>
+					{% endfor %}
+				</tr>
+				<tr>
 					<th><img class="icon" src="{% static 'main/img/small_icons/impact.png' %}"> Сила удара</th>
 					{% for c in cannon_modifications %}
 					<td>{{ c.impact_force }}</td>
@@ -100,13 +112,13 @@ body {
 					{% endfor %}
 				</tr>
 				<tr>
-					<th>Дальность макс. поражения</th>
+					<th>Дальность макс. поражения (м)</th>
 					{% for c in cannon_modifications %}
 					<td>{{ c.max_dmg_range }}</td>
 					{% endfor %}
 				</tr>
 				<tr>
-					<th><img class="icon" src="{% static 'main/img/small_icons/range.png' %}"> Дальность мин. поражения</th>
+					<th><img class="icon" src="{% static 'main/img/small_icons/range.png' %}"> Дальность мин. поражения (м)</th>
 					{% for c in cannon_modifications %}
 					<td>{{ c.min_dmg_range }}</td>
 					{% endfor %}
@@ -115,18 +127,6 @@ body {
 					<th><img class="icon" src="{% static 'main/img/small_icons/dmg_percent.png' %}"> Процент слабого поражения</th>
 					{% for c in cannon_modifications %}
 					<td>{{ c.weak_dmg_percent }}%</td>
-					{% endfor %}
-				</tr>
-				<tr>
-					<th><img class="icon" src="{% static 'main/img/small_icons/crit_chance.png' %}"> Шанс критического урона</th>
-					{% for c in cannon_modifications %}
-					<td>{{ c.critical_chance }}%</td>
-					{% endfor %}
-				</tr>
-				<tr>
-					<th><img class="icon" src="{% static 'main/img/small_icons/crit_dmg.png' %}"> Критический урон</th>
-					{% for c in cannon_modifications %}
-					<td>{{ c.critical_damage }}</td>
 					{% endfor %}
 				</tr>
             </tbody>

@@ -66,3 +66,123 @@ class TwinsPageView(View):
                 "kits": kits}
 
         return render(request, "sectioncannons/cannons_twins.html", context=data)
+
+
+class RailgunPageView(View):
+    def get(self, request):
+        cannon_modifications = Railgun.objects.all()
+        resist_paints = Paint.objects.filter(Q(resist_railgun__isnull=False) &
+                                             Q(resist_all__isnull=True)).order_by('resist_railgun')
+
+        kits = TankKit.objects.filter(cannon="7")
+
+        data = {"cannon_modifications": cannon_modifications,
+                "resist_paints": resist_paints,
+                "kits": kits}
+
+        return render(request, "sectioncannons/cannons_railgun.html", context=data)
+
+
+class HammerPageView(View):
+    def get(self, request):
+        cannon_modifications = Hammer.objects.all()
+        resist_paints = Paint.objects.filter(Q(resist_hammer__isnull=False) &
+                                             Q(resist_all__isnull=True)).order_by('resist_hammer')
+
+        kits = TankKit.objects.filter(cannon="8")
+
+        data = {"cannon_modifications": cannon_modifications,
+                "resist_paints": resist_paints,
+                "kits": kits}
+
+        return render(request, "sectioncannons/cannons_hammer.html", context=data)
+
+
+class IsidaPageView(View):
+    def get(self, request):
+        cannon_modifications = Isida.objects.all()
+        resist_paints = Paint.objects.filter(Q(resist_isida__isnull=False) &
+                                             Q(resist_all__isnull=True)).order_by('resist_isida')
+
+        kits = TankKit.objects.filter(cannon="9")
+
+        data = {"cannon_modifications": cannon_modifications,
+                "resist_paints": resist_paints,
+                "kits": kits}
+
+        return render(request, "sectioncannons/cannons_isida.html", context=data)
+
+
+class VulcanPageView(View):
+    def get(self, request):
+        cannon_modifications = Vulcan.objects.all()
+        resist_paints = Paint.objects.filter(Q(resist_vulcan__isnull=False) &
+                                             Q(resist_all__isnull=True)).order_by('resist_vulcan')
+
+        kits = TankKit.objects.filter(cannon="10")
+
+        data = {"cannon_modifications": cannon_modifications,
+                "resist_paints": resist_paints,
+                "kits": kits}
+
+        return render(request, "sectioncannons/cannons_vulcan.html", context=data)
+
+
+class FreezePageView(View):
+    def get(self, request):
+        cannon_modifications = Freeze.objects.all()
+        resist_paints = Paint.objects.filter(Q(resist_freeze__isnull=False) &
+                                             Q(resist_all__isnull=True)).order_by('resist_freeze')
+
+        kits = TankKit.objects.filter(cannon="11")
+
+        data = {"cannon_modifications": cannon_modifications,
+                "resist_paints": resist_paints,
+                "kits": kits}
+
+        return render(request, "sectioncannons/cannons_freeze.html", context=data)
+
+
+class ThunderPageView(View):
+    def get(self, request):
+        cannon_modifications = Thunder.objects.all()
+        resist_paints = Paint.objects.filter(Q(resist_thunder__isnull=False) &
+                                             Q(resist_all__isnull=True)).order_by('resist_thunder')
+
+        kits = TankKit.objects.filter(cannon="12")
+
+        data = {"cannon_modifications": cannon_modifications,
+                "resist_paints": resist_paints,
+                "kits": kits}
+
+        return render(request, "sectioncannons/cannons_thunder.html", context=data)
+
+
+class RicochetPageView(View):
+    def get(self, request):
+        cannon_modifications = Ricochet.objects.all()
+        resist_paints = Paint.objects.filter(Q(resist_ricochet__isnull=False) &
+                                             Q(resist_all__isnull=True)).order_by('resist_ricochet')
+
+        kits = TankKit.objects.filter(cannon="13")
+
+        data = {"cannon_modifications": cannon_modifications,
+                "resist_paints": resist_paints,
+                "kits": kits}
+
+        return render(request, "sectioncannons/cannons_ricochet.html", context=data)
+
+
+class ShaftPageView(View):
+    def get(self, request):
+        cannon_modifications = Shaft.objects.all()
+        resist_paints = Paint.objects.filter(Q(resist_shaft__isnull=False) &
+                                             Q(resist_all__isnull=True)).order_by('resist_shaft')
+
+        kits = TankKit.objects.filter(cannon="14")
+
+        data = {"cannon_modifications": cannon_modifications,
+                "resist_paints": resist_paints,
+                "kits": kits}
+
+        return render(request, "sectioncannons/cannons_shaft.html", context=data)

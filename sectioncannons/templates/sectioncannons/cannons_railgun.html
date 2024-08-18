@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Твинс{% endblock %}
+{% block title %}Рельса{% endblock %}
 
 {% block add_css %}<link rel="stylesheet" href="{% static 'sectioncannons/css/cannons-detail_style.css' %}">
 <style>
@@ -17,17 +17,17 @@ body {
 {% block content %}
 {% include "main/includes_header.html" %}
 <main>
-    <h1 id="title">Твинс</h1>
+    <h1 id="title">Рельса</h1>
 
     <div class="menu">
         <hr>
         <h2 class="text_section">Описание пушки</h2>
         <hr>
 
-		<p class="text">Стрелковая пушка для боя на малой дальности. Имеет разброс урона, ограниченную дальность максимального поражения и линейное падение урона. Не наносит урон за пределами дистанции минимального поражения. Стреляет поочерёдно из двух стволов плазменными зарядами, обладающими своей постоянной скоростью полёта и физическим воздействием на цель. Очень быстро перезаряжается. Обладает вертикальной автонаводкой.</p>
+		<p class="text">Стрелковая пушка для боя на большой дальности. Имеет мгновенную доставку урона, разброс урона, урон не падает с расстоянием. При нажатии на кнопку стрельбы выстрел происходит не сразу, а с небольшой задержкой. После совершения выстрела пушка достаточно долго перезаряжается. Все цели, находящиеся на траектории выстрела, получают урон и физическое воздействие. Обладает вертикальной автонаводкой.</p>
 
         <p class="text"><b>Описание в гараже:</b><br>
-			Скорострельный двуствольный плазмомёт вмиг превратит врага в кучу расплавленного железа. Учитывая то, что попадание во вражеский танк сбивает ему прицел, это оружие идеально подходит для динамичного боя на средней дистанции.
+			Если среднекалиберные пушки уже не утоляют вашу жажду самовыражения, то эта игрушка специально для вас. Крупнокалиберная пушка, обладающая огромной дульной скоростью и снарядами с сердечниками из обеднённого урана. Сверхмощный и сверхточный кинетический снаряд способен пробить танк насквозь, поразив несколько целей, стоящих на одной прямой. Идеальное оружие для позиционного боя на дальней дистанции. Следует помнить, что это оружие довольно долго перезаряжается, чем обязательно воспользуется опытный противник.</p>
 
 		<hr>
         <h2 class="text_section">Таблица характеристик пушки</h2>
@@ -94,33 +94,21 @@ body {
 					{% endfor %}
 				</tr>
 				<tr>
+					<th>Задержка перед выстрелом (сек)</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.shot_delay }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
 					<th><img class="icon" src="{% static 'main/img/small_icons/rotation.png' %}"> Скорость поворота (град/сек)</th>
 					{% for c in cannon_modifications %}
 					<td>{{ c.rotation_speed }}</td>
 					{% endfor %}
 				</tr>
 				<tr>
-					<th>Скорость снаряда (м/сек)</th>
+					<th><img class="icon" src="{% static 'main/img/small_icons/penetration.png' %}"> Процент прострела</th>
 					{% for c in cannon_modifications %}
-					<td>{{ c.projectile_speed }}</td>
-					{% endfor %}
-				</tr>
-				<tr>
-					<th>Дальность макс. поражения (м)</th>
-					{% for c in cannon_modifications %}
-					<td>{{ c.max_dmg_range }}</td>
-					{% endfor %}
-				</tr>
-				<tr>
-					<th><img class="icon" src="{% static 'main/img/small_icons/range.png' %}"> Дальность мин. поражения (м)</th>
-					{% for c in cannon_modifications %}
-					<td>{{ c.min_dmg_range }}</td>
-					{% endfor %}
-				</tr>
-				<tr>
-					<th><img class="icon" src="{% static 'main/img/small_icons/dmg_percent.png' %}"> Процент слабого поражения</th>
-					{% for c in cannon_modifications %}
-					<td>{{ c.weak_dmg_percent }}%</td>
+					<td>{{ c.penetration_percent }}%</td>
 					{% endfor %}
 				</tr>
             </tbody>
@@ -128,7 +116,7 @@ body {
 		
 		<br>
 		<hr>
-		<h2 class="text_section">Краски с защитой от Твинса</h2>
+		<h2 class="text_section">Краски с защитой от Рельсы</h2>
 		<hr>
 
 		<div class="flex-section">
@@ -138,14 +126,14 @@ body {
 				<div class="img_wrapper" align="center">
 					<img src="{{ paint.image_icon.url }}"><br>
 				</div>
-				<h6 class="section-item-name"><img class="icon" src="{% static 'main/img/small_icons/resist_twins.png' %}">
-					{{ paint.resist_twins }}%</h6>
+				<h6 class="section-item-name"><img class="icon" src="{% static 'main/img/small_icons/resist_railgun.png' %}">
+					{{ paint.resist_railgun }}%</h6>
 			</a>
 			{% endfor %}
 		</div>
 
 		<hr>
-		<h2 class="text_section">Комплекты, содержащие Твинс</h2>
+		<h2 class="text_section">Комплекты, содержащие Рельсу</h2>
 		<hr>
 
 		{% include "sectioncannons/includes_section_kits.html" %}

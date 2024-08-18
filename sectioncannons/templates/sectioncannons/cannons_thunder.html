@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Твинс{% endblock %}
+{% block title %}Гром{% endblock %}
 
 {% block add_css %}<link rel="stylesheet" href="{% static 'sectioncannons/css/cannons-detail_style.css' %}">
 <style>
@@ -17,17 +17,17 @@ body {
 {% block content %}
 {% include "main/includes_header.html" %}
 <main>
-    <h1 id="title">Твинс</h1>
+    <h1 id="title">Гром</h1>
 
     <div class="menu">
         <hr>
         <h2 class="text_section">Описание пушки</h2>
         <hr>
 
-		<p class="text">Стрелковая пушка для боя на малой дальности. Имеет разброс урона, ограниченную дальность максимального поражения и линейное падение урона. Не наносит урон за пределами дистанции минимального поражения. Стреляет поочерёдно из двух стволов плазменными зарядами, обладающими своей постоянной скоростью полёта и физическим воздействием на цель. Очень быстро перезаряжается. Обладает вертикальной автонаводкой.</p>
+		<p class="text">Стрелковая пушка для боя на средней дальности. Имеет мгновенную доставку урона, разброс урона, ограниченную дальность максимального поражения и линейное падение урона. За пределами дистанции минимального поражения наносит урон не в полном объёме. Попадание по цели наносит ей урон и воздействует на танк физически. Кроме того, при попадании в любое препятствие или танк происходит взрыв, наносящий урон всем целям в некотором радиусе от точки попадания, а также самому стрелку, если он попал под взрыв. Обладает вертикальной автонаводкой.</p>
 
         <p class="text"><b>Описание в гараже:</b><br>
-			Скорострельный двуствольный плазмомёт вмиг превратит врага в кучу расплавленного железа. Учитывая то, что попадание во вражеский танк сбивает ему прицел, это оружие идеально подходит для динамичного боя на средней дистанции.
+			Среднекалиберная пушка — это лучший выбор для любителей динамичного боя. Разрывной снаряд Грома (осторожно, можно нанести урон самому себе) позволяет атаковать группу соперников, а быстрая перезарядка поможет получить неоспоримое преимущество перед тяжёлыми танками противника. В сочетании с быстрым корпусом Гром становится грозным оружием в руках умелого танкиста.</p>
 
 		<hr>
         <h2 class="text_section">Таблица характеристик пушки</h2>
@@ -82,6 +82,12 @@ body {
 					{% endfor %}
 				</tr>
 				<tr>
+					<th>Сила удара сплеша</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.impact_force_splash }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
 					<th>Отдача</th>
 					{% for c in cannon_modifications %}
 					<td>{{ c.recoil_force }}</td>
@@ -97,12 +103,6 @@ body {
 					<th><img class="icon" src="{% static 'main/img/small_icons/rotation.png' %}"> Скорость поворота (град/сек)</th>
 					{% for c in cannon_modifications %}
 					<td>{{ c.rotation_speed }}</td>
-					{% endfor %}
-				</tr>
-				<tr>
-					<th>Скорость снаряда (м/сек)</th>
-					{% for c in cannon_modifications %}
-					<td>{{ c.projectile_speed }}</td>
 					{% endfor %}
 				</tr>
 				<tr>
@@ -123,12 +123,30 @@ body {
 					<td>{{ c.weak_dmg_percent }}%</td>
 					{% endfor %}
 				</tr>
+				<tr>
+					<th>Радиус макс. поражения (м)</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.max_dmg_radius }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th>Радиус мин. поражения (м)</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.min_dmg_radius }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th>Процент слабого поражения сплешом</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.weak_splash_dmg_percent }}%</td>
+					{% endfor %}
+				</tr>
             </tbody>
         </table>
 		
 		<br>
 		<hr>
-		<h2 class="text_section">Краски с защитой от Твинса</h2>
+		<h2 class="text_section">Краски с защитой от Грома</h2>
 		<hr>
 
 		<div class="flex-section">
@@ -138,14 +156,14 @@ body {
 				<div class="img_wrapper" align="center">
 					<img src="{{ paint.image_icon.url }}"><br>
 				</div>
-				<h6 class="section-item-name"><img class="icon" src="{% static 'main/img/small_icons/resist_twins.png' %}">
-					{{ paint.resist_twins }}%</h6>
+				<h6 class="section-item-name"><img class="icon" src="{% static 'main/img/small_icons/resist_thunder.png' %}">
+					{{ paint.resist_thunder }}%</h6>
 			</a>
 			{% endfor %}
 		</div>
 
 		<hr>
-		<h2 class="text_section">Комплекты, содержащие Твинс</h2>
+		<h2 class="text_section">Комплекты, содержащие Гром</h2>
 		<hr>
 
 		{% include "sectioncannons/includes_section_kits.html" %}

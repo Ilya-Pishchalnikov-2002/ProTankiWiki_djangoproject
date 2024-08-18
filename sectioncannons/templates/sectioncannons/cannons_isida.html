@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Изида{% endblock %}
+
+{% block add_css %}<link rel="stylesheet" href="{% static 'sectioncannons/css/cannons-detail_style.css' %}">
+<style>
+body {
+    margin: 0px;
+    background-image: url({% static 'main/img/tanki_bg.jpg' %});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+</style>{% endblock %}
+
+{% block content %}
+{% include "main/includes_header.html" %}
+<main>
+    <h1 id="title">Изида</h1>
+
+    <div class="menu">
+        <hr>
+        <h2 class="text_section">Описание пушки</h2>
+        <hr>
+
+		<p class="text">Баллонная пушка, выдающая урон/лечение в полном объёме на всей дистанции поражения (без штрафа на дальность). Врагам, находящимся в пределах конуса поражения, пушка наносит урон с эффектом "вампиризма", союзникам — восстанавливает здоровье и снимает эффекты заморозки и горения. Скорость расхода баллона зависит от типа цели (по врагам — быстрее, по союзникам — медленнее). Луч автоматически захватывает цели, находящиеся в конусе поражения, что, с одной стороны, облегчает наведение на одиночную цель, а с другой — усложняет наведение на конкретную цель, если их в конусе поражения несколько. Луч блокируется препятствиями, другими танками и трупами танков.</p>
+
+        <p class="text"><b>Описание в гараже:</b><br>
+			Уникальная идея этого оружия зародилась ещё во времена холодной войны, но смогла воплотиться только с развитием квантовой физики и нанотехнологий. Сердце этой чудо-машины — генератор нанороботов, способных воспроизвести или разрушить структуру любого материала небиологического происхождения. Импульсный излучатель, которым оборудована пушка, позволяет транспортировать наномассу в магнитном канале на расстояние в пару десятков метров. Молекулярный материал, получаемый при работе нанороботов в режиме разрушения цели, используется для починки собственного шасси. Таким образом, это оружие наносит урон врагам и восстанавливает союзников, что особенно необходимо при командной игре.</p>
+
+		<hr>
+        <h2 class="text_section">Таблица характеристик пушки</h2>
+        <hr>
+        <br>
+
+        <table align="center">
+            <thead>
+                <tr>
+                    <th>Модификация</th>
+                    <td>М0</td>
+                    <td>М1</td>
+                    <td>М2</td>
+                    <td>М3</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Изображение</th>
+                    {% for c in cannon_modifications %}
+                    <td><img src="{{ c.image.url }}" width="85%"></td>
+                    {% endfor %}
+                </tr>
+				<tr>
+					<th>Требуемое звание</th>
+					{% for c in cannon_modifications %}
+					<td><a href="/звания/{{ c.rank_required.slug_name }}"><img src="{{ c.rank_required.rank_icon.url }}" title="{{ c.rank_required.rank_name }}"></a></td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th>Стоимость</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.cost }} <img src="{% static 'main/img/small_icons/cry.png' %}" title="Кристаллов"></td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th><img class="icon" src="{% static 'main/img/small_icons/dmg_isida.png' %}"> Урон (хп/сек)</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.damage_hp_sec }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th><img class="icon" src="{% static 'main/img/small_icons/heal.png' %}"> Лечение (хп/сек)</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.healing_hp_sec }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th><img class="icon" src="{% static 'main/img/small_icons/selfheal.png' %}"> Процент самолечения</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.selfhealing_percent }}%</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th><img class="icon" src="{% static 'main/img/small_icons/reloading.png' %}"> Перезарядка (сек)</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.reload_speed }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th>Длительность атаки (сек)</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.attack_duration }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th>Длительность лечения (сек)</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.healing_idle_duration }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th>Длительность холостой атаки (сек)</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.healing_idle_duration }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th><img class="icon" src="{% static 'main/img/small_icons/rotation.png' %}"> Скорость поворота (град/сек)</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.rotation_speed }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th><img class="icon" src="{% static 'main/img/small_icons/range.png' %}"> Дальность атаки</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.attack_range }}</td>
+					{% endfor %}
+				</tr>
+            </tbody>
+        </table>
+		
+		<br>
+		<hr>
+		<h2 class="text_section">Краски с защитой от Изиды</h2>
+		<hr>
+
+		<div class="flex-section">
+			{% for paint in resist_paints %}
+			<a class="section-item" href="/краски/{{ paint.slug_name }}">
+				<h3 class="section-item-name">{{ paint.name }}</h3>
+				<div class="img_wrapper" align="center">
+					<img src="{{ paint.image_icon.url }}"><br>
+				</div>
+				<h6 class="section-item-name"><img class="icon" src="{% static 'main/img/small_icons/resist_isida.png' %}">
+					{{ paint.resist_isida }}%</h6>
+			</a>
+			{% endfor %}
+		</div>
+
+		<hr>
+		<h2 class="text_section">Комплекты, содержащие Изиду</h2>
+		<hr>
+
+		{% include "sectioncannons/includes_section_kits.html" %}
+
+    </div>
+</main>
+{% endblock %}

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Твинс{% endblock %}
+{% block title %}Рикошет{% endblock %}
 
 {% block add_css %}<link rel="stylesheet" href="{% static 'sectioncannons/css/cannons-detail_style.css' %}">
 <style>
@@ -17,17 +17,17 @@ body {
 {% block content %}
 {% include "main/includes_header.html" %}
 <main>
-    <h1 id="title">Твинс</h1>
+    <h1 id="title">Рикошет</h1>
 
     <div class="menu">
         <hr>
         <h2 class="text_section">Описание пушки</h2>
         <hr>
 
-		<p class="text">Стрелковая пушка для боя на малой дальности. Имеет разброс урона, ограниченную дальность максимального поражения и линейное падение урона. Не наносит урон за пределами дистанции минимального поражения. Стреляет поочерёдно из двух стволов плазменными зарядами, обладающими своей постоянной скоростью полёта и физическим воздействием на цель. Очень быстро перезаряжается. Обладает вертикальной автонаводкой.</p>
+		<p class="text">Баллонно-стрелковая пушка для боя на малой дальности. Имеет разброс урона, ограниченную дальность максимального поражения и линейное падение урона. Не наносит урон за пределами дистанции минимального поражения. Стреляет плазменными зарядами, обладающими своей постоянной скоростью полёта, физическим воздействием на цель и способностью рикошетить от препятствий (не танков) до 20 раз. Обладает вертикальной автонаводкой.</p>
 
         <p class="text"><b>Описание в гараже:</b><br>
-			Скорострельный двуствольный плазмомёт вмиг превратит врага в кучу расплавленного железа. Учитывая то, что попадание во вражеский танк сбивает ему прицел, это оружие идеально подходит для динамичного боя на средней дистанции.
+			Плазмомёт «Рикошет» — это новая секретная разработка сибирских ученых. Чтобы поставить её на вооружение, команда из 22 специалистов три года работала в подземном бункере без права выхода на поверхность. В итоге они создали уникальное оружие. Оно выпускает плазменные заряды, окутанные «умным» минус-полем. При попадании в танк заряд взрывается, но от других поверхностей отскакивает и продолжает полёт. Таким образом, из Рикошета можно поразить цель, даже не видя её.</p>
 
 		<hr>
         <h2 class="text_section">Таблица характеристик пушки</h2>
@@ -88,9 +88,21 @@ body {
 					{% endfor %}
 				</tr>
 				<tr>
-					<th><img class="icon" src="{% static 'main/img/small_icons/reloading.png' %}"> Перезарядка (сек)</th>
+					<th><img class="icon" src="{% static 'main/img/small_icons/reloading.png' %}"> Перезарядка выстрелов (сек)</th>
 					{% for c in cannon_modifications %}
 					<td>{{ c.reload_speed }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th>Процент энергии на выстрел</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.energy_consumption }}%</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th>Перезарядка всего баллона (сек)</th>
+					{% for c in cannon_modifications %}
+					<td>{{ c.charging_speed }}</td>
 					{% endfor %}
 				</tr>
 				<tr>
@@ -128,7 +140,7 @@ body {
 		
 		<br>
 		<hr>
-		<h2 class="text_section">Краски с защитой от Твинса</h2>
+		<h2 class="text_section">Краски с защитой от Рикошета</h2>
 		<hr>
 
 		<div class="flex-section">
@@ -138,14 +150,14 @@ body {
 				<div class="img_wrapper" align="center">
 					<img src="{{ paint.image_icon.url }}"><br>
 				</div>
-				<h6 class="section-item-name"><img class="icon" src="{% static 'main/img/small_icons/resist_twins.png' %}">
-					{{ paint.resist_twins }}%</h6>
+				<h6 class="section-item-name"><img class="icon" src="{% static 'main/img/small_icons/resist_ricochet.png' %}">
+					{{ paint.resist_ricochet }}%</h6>
 			</a>
 			{% endfor %}
 		</div>
 
 		<hr>
-		<h2 class="text_section">Комплекты, содержащие Твинс</h2>
+		<h2 class="text_section">Комплекты, содержащие Рикошет</h2>
 		<hr>
 
 		{% include "sectioncannons/includes_section_kits.html" %}
