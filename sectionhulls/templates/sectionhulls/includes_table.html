@@ -1,0 +1,62 @@
+{% load static %}
+<table align="center">
+    <thead>
+        <tr>
+            <th>Модификация</th>
+            <td>М0</td>
+            <td>М1</td>
+            <td>М2</td>
+            <td>М3</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Изображение</th>
+            {% for h in hull_modifications %}
+            <td><img src="{{ h.image.url }}" width="85%"></td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <th>Требуемое звание</th>
+            {% for h in hull_modifications %}
+            <td><a href="/звания/{{ h.rank_required.slug_name }}"><img src="{{ h.rank_required.rank_icon.url }}" title="{{ h.rank_required.rank_name }}"></a></td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <th>Стоимость</th>
+            {% for h in hull_modifications %}
+            <td>{{ h.cost }} <img src="{% static 'main/img/small_icons/cry.png' %}" title="Кристаллов"></td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <th><img class="icon" src="{% static 'main/img/small_icons/armor.png' %}"> Броня</th>
+            {% for h in hull_modifications %}
+            <td>{{ h.armor }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <th><img class="icon" src="{% static 'main/img/small_icons/speed.png' %}"> Максимальная скорость (м/сек)</th>
+            {% for h in hull_modifications %}
+            <td>{{ h.max_speed }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <th><img class="icon" src="{% static 'main/img/small_icons/turning.png' %}"> Скорость поворота (град/сек)</th>
+            {% for h in hull_modifications %}
+            <td>{{ h.turning_speed }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <th><img class="icon" src="{% static 'main/img/small_icons/weight.png' %}"> Масса</th>
+            {% for h in hull_modifications %}
+            <td>{{ h.weight }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <th><img class="icon" src="{% static 'main/img/small_icons/power.png' %}"> Мощность</th>
+            {% for h in hull_modifications %}
+            <td>{{ h.power }}</td>
+            {% endfor %}
+        </tr>
+    </tbody>
+</table>

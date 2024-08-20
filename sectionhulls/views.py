@@ -16,3 +16,87 @@ class HullsPageView(View):
                 "heavy_hulls": hulls_heavy}
 
         return render(request, "sectionhulls/hulls_main.html", context=data)
+
+
+class HunterPageView(View):
+    def get(self, request):
+        hull_modifications = Hunter.objects.all()
+
+        kits = TankKit.objects.filter(hull="1")
+
+        data = {"hull_modifications": hull_modifications,
+                "kits": kits}
+
+        return render(request, "sectionhulls/hulls_hunter.html", context=data)
+
+
+class VaspPageView(View):
+    def get(self, request):
+        hull_modifications = Vasp.objects.all()
+
+        kits = TankKit.objects.filter(hull="2")
+
+        data = {"hull_modifications": hull_modifications,
+                "kits": kits}
+
+        return render(request, "sectionhulls/hulls_vasp.html", context=data)
+
+
+class TitanPageView(View):
+    def get(self, request):
+        hull_modifications = Titan.objects.all()
+
+        kits = TankKit.objects.filter(hull="3")
+
+        data = {"hull_modifications": hull_modifications,
+                "kits": kits}
+
+        return render(request, "sectionhulls/hulls_titan.html", context=data)
+
+
+class DictatorPageView(View):
+    def get(self, request):
+        hull_modifications = Dictator.objects.all()
+
+        kits = TankKit.objects.filter(hull="4")
+
+        data = {"hull_modifications": hull_modifications,
+                "kits": kits}
+
+        return render(request, "sectionhulls/hulls_dictator.html", context=data)
+
+
+class HornetPageView(View):
+    def get(self, request):
+        hull_modifications = Hornet.objects.all()
+
+        kits = TankKit.objects.filter(hull="5")
+
+        data = {"hull_modifications": hull_modifications,
+                "kits": kits}
+
+        return render(request, "sectionhulls/hulls_hornet.html", context=data)
+
+
+class MammothPageView(View):
+    def get(self, request):
+        hull_modifications = Mammoth.objects.all()
+
+        kits = TankKit.objects.filter(hull="6")
+
+        data = {"hull_modifications": hull_modifications,
+                "kits": kits}
+
+        return render(request, "sectionhulls/hulls_mammoth.html", context=data)
+
+
+class VikingPageView(View):
+    def get(self, request):
+        hull_modifications = Viking.objects.all()
+
+        kits = TankKit.objects.filter(hull="7")
+
+        data = {"hull_modifications": hull_modifications,
+                "kits": kits}
+
+        return render(request, "sectionhulls/hulls_viking.html", context=data)
