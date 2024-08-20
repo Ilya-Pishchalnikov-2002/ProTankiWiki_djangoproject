@@ -2,6 +2,8 @@ from django.db import models
 from django.utils.text import slugify
 from sectionranks.models import Rank
 
+__all__ = ["Hull", "Hunter", "Vasp", "Titan", "Dictator", "Hornet", "Mammoth", "Viking"]
+
 
 class Hull(models.Model):
     CATEGORY_LIST = [

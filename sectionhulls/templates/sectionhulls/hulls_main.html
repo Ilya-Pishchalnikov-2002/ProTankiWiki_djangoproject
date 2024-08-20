@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Корпуса{% endblock %}
+
+{% block add_css %}<link rel="stylesheet" href="{% static 'sectionhulls/css/hulls-main_style.css' %}">
+<style>
+body {
+    margin: 0px;
+    background-image: url({% static 'main/img/tanki_bg.jpg' %});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+</style>{% endblock %}
+
+{% block content %}
+{% include "main/includes_header.html" %}
+<main>
+    <h1 id="title">Корпуса</h1>
+
+    <div class="menu">
+
+        <a href="/"><div class="button-back">Вернуться на главную</div></a>
+
+        <p class="text">Правильный выбор пушки — это лишь часть успеха. Нужно ещё правильно подобрать корпус, благо в «ProTanki» их огромное разнообразие: от лёгких и быстрых до тяжёлых и защищённых.</p>
+        <p class="text">Все они, так же как и пушки, имеют по четыре модификаций (от М0 до М3). Вы можете попробовать наиболее популярные тактики уже на младших званиях, не потратив большого количества кристаллов, но получить сразу всё не получится, потому что тот или иной корпус и модификацию корпуса можно купить только с определённого звания.</p>
+
+        <hr>
+        <h2 class="text_section">Лёгкие корпуса</h2>
+        <hr>
+
+        <div class="flex-section">
+            {% for hull in light_hulls %}
+            <a class="section-item" href="/корпуса/{{ hull.slug_name }}">
+                <div align="center">
+                    <h3 class="section-item-name">{{ hull.name }}</h3>
+                    <br>
+                    <img src="{{ hull.image.url }}">
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+        <hr>
+        <h2 class="text_section">Средние корпуса</h2>
+        <hr>
+
+        <div class="flex-section">
+            {% for hull in medium_hulls %}
+            <a class="section-item" href="/корпуса/{{ hull.slug_name }}">
+                <div align="center">
+                    <h3 class="section-item-name">{{ hull.name }}</h3>
+                    <br>
+                    <img src="{{ hull.image.url }}">
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+        <hr>
+        <h2 class="text_section">Тяжёлые корпуса</h2>
+        <hr>
+
+        <div class="flex-section">
+            {% for hull in heavy_hulls %}
+            <a class="section-item" href="/корпуса/{{ hull.slug_name }}">
+                <div align="center">
+                    <h3 class="section-item-name">{{ hull.name }}</h3>
+                    <br>
+                    <img src="{{ hull.image.url }}">
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+    </div>
+</main>
+{% endblock %}

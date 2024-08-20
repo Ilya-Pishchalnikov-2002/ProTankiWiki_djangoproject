@@ -10,5 +10,6 @@ admin.site.index_title = "Админка епта"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", views.HomePageView.as_view(), name="home"),
-    path("пушки/", include("sectioncannons.urls"))
+    path("пушки/", include("sectioncannons.urls")),
+    path("корпуса/", include("sectionhulls.urls"))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
