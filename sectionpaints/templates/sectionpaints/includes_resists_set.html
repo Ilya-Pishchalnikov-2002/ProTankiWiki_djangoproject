@@ -1,0 +1,89 @@
+{% load static %}
+{% if paint.have_resist %}
+    {% if paint.resist_all is Null %}
+
+        {% if paint.resist_smoky is not Null %}
+        <p class="section-item-text">
+            <img class="icon" src="{% static 'main/img/small_icons/resist_smoky.png' %}" title="Защита от Смоки"><br>
+            {{ paint.resist_smoky }}%
+        </p>
+        {% endif %}
+
+        {% if paint.resist_firebird is not Null %}
+        <p class="section-item-text">
+            <img class="icon" src="{% static 'main/img/small_icons/resist_firebird.png' %}" title="Защита от Огнемёта"><br>
+            {{ paint.resist_firebird }}%
+        </p>
+        {% endif %}
+
+        {% if paint.resist_twins is not Null %}
+        <p class="section-item-text">
+            <img class="icon" src="{% static 'main/img/small_icons/resist_twins.png' %}" title="Защита от Твинса"><br>
+            {{ paint.resist_twins }}%
+        </p>
+        {% endif %}
+
+        {% if paint.resist_hammer is not Null %}
+        <p class="section-item-text">
+            <img class="icon" src="{% static 'main/img/small_icons/resist_hammer.png' %}" title="Защита от Молота"><br>
+            {{ paint.resist_hammer }}%
+        </p>
+        {% endif %}
+
+        {% if paint.resist_railgun is not Null %}
+        <p class="section-item-text">
+            <img class="icon" src="{% static 'main/img/small_icons/resist_railgun.png' %}" title="Защита от Рельсы"><br>
+            {{ paint.resist_railgun }}%
+        </p>
+        {% endif %}
+
+        {% if paint.resist_isida is not Null %}
+        <p class="section-item-text">
+            <img class="icon" src="{% static 'main/img/small_icons/resist_isida.png' %}" title="Защита от Изиды"><br>
+            {{ paint.resist_isida }}%
+        </p>
+        {% endif %}
+
+        {% if paint.resist_vulcan is not Null %}
+        <p class="section-item-text">
+            <img class="icon" src="{% static 'main/img/small_icons/resist_vulcan.png' %}" title="Защита от Вулкана"><br>
+            {{ paint.resist_vulcan }}%
+        </p>
+        {% endif %}
+
+        {% if paint.resist_thunder is not Null %}
+        <p class="section-item-text">
+            <img class="icon" src="{% static 'main/img/small_icons/resist_thunder.png' %}" title="Защита от Грома"><br>
+            {{ paint.resist_thunder }}%
+        </p>
+        {% endif %}
+
+        {% if paint.resist_freeze is not Null %}
+        <p class="section-item-text">
+            <img class="icon" src="{% static 'main/img/small_icons/resist_freeze.png' %}" title="Защита от Фриза"><br>
+            {{ paint.resist_freeze }}%
+        </p>
+        {% endif %}
+
+        {% if paint.resist_ricochet is not Null %}
+        <p class="section-item-text">
+            <img class="icon" src="{% static 'main/img/small_icons/resist_ricochet.png' %}" title="Защита от Рикошета"><br>
+            {{ paint.resist_ricochet }}%
+        </p>
+        {% endif %}
+
+        {% if paint.resist_shaft is not Null %}
+        <p class="section-item-text">
+            <img class="icon" src="{% static 'main/img/small_icons/resist_shaft.png' %}" title="Защита от Шафта"><br>
+            {{ paint.resist_shaft }}%
+        </p>
+        {% endif %}
+    {% else %}
+        <p class="section-item-text">
+            <img class="icon" src="{% static 'main/img/small_icons/resist_all.png' %}" title="Защита от ВСЕХ пушек и мин"><br>
+            {{ paint.resist_all }}%
+        </p>
+    {% endif %}
+{% else %}
+    <p class="text-no-resist">Не имеет защиты</p>
+{% endif %}

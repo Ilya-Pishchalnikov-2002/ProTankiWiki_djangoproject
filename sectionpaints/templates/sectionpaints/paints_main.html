@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Краски{% endblock %}
+
+{% block add_css %}<link rel="stylesheet" href="{% static 'sectionpaints/css/paints-main_style.css' %}">
+<style>
+body {
+    margin: 0px;
+    background-image: url({% static 'main/img/tanki_bg.jpg' %});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+</style>{% endblock %}
+
+{% block content %}
+{% include "main/includes_header.html" %}
+<main>
+    <h1 id="title">Краски</h1>
+
+    <div class="menu">
+
+        <a href="/"><div class="button-back">Вернуться на главную</div></a>
+
+        <p class="text">Дополнить внешний вид вашего танка вы можете благодаря всевозможным краскам. При этом, вы можете не только разнообразить вашу боевую машину, но и укрепить её от воздействия тех или иных пушек.</p>
+
+        <hr>
+        <h2 class="text_section">Список красок</h2>
+        <hr>
+
+        <div class="flex-section">
+			{% for paint in paint_list %}
+			<div class="section-item">
+				<a class="item-link" href="/краски/{{ paint.slug_name }}">
+					<h3 class="section-item-name">{{ paint.name }}</h3>
+					<div class="img_wrapper" align="center">
+						<img src="{{ paint.image_icon.url }}"><br>
+					</div>
+					<div class="inner-wrapper">
+						<div>
+							<p class="section-item-text">{{ paint.cost }} <img src="{% static 'main/img/small_icons/cry.png' %}" title="Кристаллов"></p>
+						</div>
+						<div>
+							<img src="{{ paint.rank_required.rank_icon.url }}" title="{{ paint.rank_required.rank_name }}" width="80%">
+						</div>
+					</div>
+					<div class="resists_set">
+						{% include 'sectionpaints/includes_resists_set.html' %}
+					</div>
+				</a>
+			</div>
+			{% endfor %}
+		</div>
+
+    </div>
+</main>
+{% endblock %}
