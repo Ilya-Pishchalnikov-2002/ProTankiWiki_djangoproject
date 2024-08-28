@@ -12,3 +12,20 @@ class PaintsPageView(View):
         data = {"paint_list": paint_list}
 
         return render(request, "sectionpaints/paints_main.html", context=data)
+
+
+class PaintsDetailView(View):
+    def get(self, request, p):
+        query = Paint.objects.filter(slug_name=p)
+
+        if query.exists():
+            paint_detail = query.get(slug_name=p)
+            kits = TankKit.objects.filter(paint=paint_detail.id)
+
+            data = {"paint": paint_detail,
+                    "kits": kits}
+            return render(request, "sectionpaints/paints_detail.html", context=data)
+
+        else:
+            data = {"paint": p}
+            return render(request, "sectionpaints/paints_no_such_paint.html", context=data)

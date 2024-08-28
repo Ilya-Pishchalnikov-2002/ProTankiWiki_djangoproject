@@ -29,7 +29,7 @@ header img {
     font-family: Arial, sans-serif;
     color: white;
     text-align: justify;
-    margin: 24px;
+    margin: 30px;
 }
 
 .text_section {
@@ -73,62 +73,22 @@ header img {
     background-color: rgba(180, 180, 180, 0.4);
 }
 
-table {
-    border: 1px solid white;
-    border-radius: 5px;
-}
-
-th {
-    width: 180px;
-    padding: 5px;
-    border: 1px solid white;
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-    color: white;
-    text-align: left;
-    background-color: rgb(80, 80, 80);
-}
-
-td {
-    padding: 5px;
-    border: 1px solid white;
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-    color: white;
-    text-align: center;
-    background-color: rgb(60, 60, 60);
+.big_image {
+    border: 1px solid grey;
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
 }
 
 .icon {
     vertical-align: middle;
 }
 
-.flex-section {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.section-item {
-    width: 170px;
-    margin: 15px;
-    padding: 5px;
-    border: 1px solid rgba(220, 220, 220, 0.8);
-    border-radius: 15px;
-    background-color: rgba(180, 180, 180, 0.1);
-    text-decoration-line: none;
-    transition-property: background-color;
-    transition-duration: 0.2s;
-    transition-timing-function: linear;
-}
-
-.section-item:hover {
-    background-color: rgba(180, 180, 180, 0.2);
-}
-
-.section-item:active {
-    background-color: rgba(180, 180, 180, 0.4);
+.text-description {
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 10px;
 }
 
 .section-item-name {
@@ -139,8 +99,36 @@ td {
     margin: 12px;
 }
 
-.img_wrapper {
-    height: 110px;
+.section-item-text {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: left;
+    margin: 10px;
+}
+
+.resists_set {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    border: 1px solid grey;
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+}
+
+.text-no-resist {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    color: grey;
+    text-align: center;
+    margin: 25px;
 }
 
 .flex-section-kits {
