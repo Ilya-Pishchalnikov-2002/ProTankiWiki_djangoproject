@@ -29,7 +29,7 @@ header img {
     font-family: Arial, sans-serif;
     color: white;
     text-align: justify;
-    margin: 30px;
+    margin: 20px;
 }
 
 .text_section {
@@ -53,7 +53,7 @@ header img {
 
 .button-back {
     display: inline-block;
-    width: 170px;
+    width: 180px;
     border: 1px solid rgba(220, 220, 220, 0.8);
     border-radius: 15px;
     background-color: rgba(180, 180, 180, 0.1);
@@ -61,8 +61,8 @@ header img {
     font-family: Arial, sans-serif;
     color: white;
     text-align: center;
-    margin: 8px;
-    padding: 6px;
+    margin: 10px;
+    padding: 10px;
 }
 
 .button-back:hover {
@@ -73,30 +73,40 @@ header img {
     background-color: rgba(180, 180, 180, 0.4);
 }
 
-.big_image {
-    border: 1px solid grey;
-    border-radius: 12px;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px;
+.flex-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.icon {
-    vertical-align: middle;
+.section-item {
+    width: 280px;
+    height: 375px;
+    margin: 15px;
+    padding-bottom: 5px;
+    border: 1px solid rgba(220, 220, 220, 0.8);
+    border-radius: 15px;
+    background-color: rgba(180, 180, 180, 0.1);
 }
 
-.text-description {
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-    color: white;
-    margin: 10px;
+.section-item-descr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+}
+
+.img_wrapper {
+    height: 110px;
 }
 
 .section-item-name {
-    font-size: 20px;
+    font-size: 24px;
     font-family: Arial, sans-serif;
     color: white;
     text-align: center;
-    margin: 12px;
+    margin: 15px;
 }
 
 .section-item-text {
@@ -104,31 +114,8 @@ header img {
     font-weight: bold;
     font-family: Arial, sans-serif;
     color: white;
-    text-align: left;
-    margin: 10px;
-}
-
-.resists_set {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
-    border: 1px solid grey;
-    border-radius: 12px;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px;
-}
-
-.text-no-resist {
-    font-size: 16px;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    color: grey;
     text-align: center;
-    margin: 25px;
+    margin: 10px;
 }
 
 .flex-section-kits {

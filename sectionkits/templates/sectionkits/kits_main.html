@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Комплекты товаров{% endblock %}
+
+{% block add_css %}<link rel="stylesheet" href="{% static 'sectionkits/css/kits-main_style.css' %}">
+<style>
+body {
+    margin: 0px;
+    background-image: url({% static 'main/img/tanki_bg.jpg' %});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+</style>{% endblock %}
+
+{% block content %}
+{% include "main/includes_header.html" %}
+<main>
+    <h1 id="title">Комплекты товаров</h1>
+
+    <div class="menu">
+
+        <a href="/"><div class="button-back">Вернуться на главную</div></a>
+
+        <p class="text">
+			Комплект — это несколько товаров, объединённых в один. Все вместе они стоят существенно дешевле, чем при покупке каждой вещи по отдельности. Кроме того, некоторые вещи из комплекта могут быть ещё недоступны вам по званию, но в составе комплекта вы уже можете их приобрести и использовать.
+		</p>
+		<p class="text">
+			<b>Важные факты:</b>
+		</p>
+		<ul class="text">
+			<li>Вещи, содержащиеся в комплекте, устанавливаются на танк автоматически после совершения покупки.</li>
+			<li>Вещи, содержащиеся в комплекте, можно использовать отдельно от комплекта в любых сочетаниях без каких-либо ограничений — будто вы купили их по отдельности.</li>
+			<li>Если у вас уже есть какие-либо вещи из комплекта, и вы решаете его купить, то вы получите только недостающие вещи. При этом стоимость предложения не будет изменяться в зависимости от наличия некоторых предметов у вас в гараже, так как комплект — это цельное предложение.</li>
+			<li>Если на вещи из комплекта у вас имеется скидка, то она НЕ повлияет на стоимость комплекта.</li>
+			<li>Комплекты могут быть представлены в любой модификации — от М0 до М3. Модификации частей комплекта определяются согласно вашему званию: чем выше, тем больше модификация.</li>
+		</ul>
+
+        <hr>
+        <h2 class="text_section">Комплекты вооружения</h2>
+        <hr>
+
+        <div class="flex-section">
+			{% for kit in armkit_list %}
+			<div class="section-item">
+				<h3 class="section-item-name">{{ kit.name }}</h3>
+				<hr>
+				<div class="img_wrapper" align="center">
+					<img src="{{ kit.image.url }}">
+				</div>
+				<div class="section-item-descr">
+					<p class="section-item-text">{{ kit.content }}</p>
+				</div>
+				<hr>
+				<div class="inner-wrapper">
+					<div>
+						<p class="section-item-text">{{ kit.cost }} <img src="{% static 'main/img/small_icons/cry.png' %}" title="Кристаллов"></p>
+					</div>
+					<div>
+						<p class="section-item-kits-discount">-{{ kit.discount }}%</p>
+					</div>
+				</div>
+				<hr>
+				<div class="inner-wrapper">
+					<img src="{{ kit.rank_start.rank_icon.url }}" title="{{ kit.rank_start.rank_name }}" width="30px">
+					<p class="section-item-kits-text"><b>-</b></p>
+					<img src="{{ kit.rank_end.rank_icon.url }}" title="{{ kit.rank_end.rank_name }}" width="30px">
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+
+		<hr>
+        <h2 class="text_section">Комплекты припасов</h2>
+        <hr>
+
+		<div class="flex-section">
+			{% for kit in supplykit_list %}
+			<div class="section-item">
+				<h3 class="section-item-name">{{ kit.name }}</h3>
+				<hr>
+				<div class="img_wrapper" align="center">
+					<img src="{{ kit.image.url }}">
+				</div>
+				<div class="section-item-descr">
+					<p class="section-item-text">{{ kit.supply_count }} припасов каждого вида</p>
+				</div>
+				<hr>
+				<div class="inner-wrapper">
+					<div>
+						<p class="section-item-text">{{ kit.cost }} <img src="{% static 'main/img/small_icons/cry.png' %}" title="Кристаллов"></p>
+					</div>
+					<div>
+						<p class="section-item-kits-discount">-{{ kit.discount }}%</p>
+					</div>
+				</div>
+				<hr>
+				<div class="inner-wrapper">
+					<img src="{{ kit.rank_start.rank_icon.url }}" title="{{ kit.rank_start.rank_name }}" width="30px">
+					<p class="section-item-kits-text"><b>-</b></p>
+					<img src="{{ kit.rank_end.rank_icon.url }}" title="{{ kit.rank_end.rank_name }}" width="30px">
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+
+		<hr>
+        <h2 class="text_section">Комплекты танков</h2>
+        <hr>
+
+		{% include "main/includes_section_kits.html" %}
+
+    </div>
+</main>
+{% endblock %}

@@ -27,7 +27,7 @@ header img {
 .flex-menu {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     width: 90%;
     padding: 25px;
     margin-left: auto;
@@ -43,13 +43,20 @@ header img {
     background-color: rgba(180, 180, 180, 0.1);
     width: 260px;
     height: 180px;
-    margin: 10px;
-    transition: all 0.3s ease-in-out;
+    margin: 20px;
+    padding: 6px;
     text-decoration-line: none;
+    transition-property: background-color;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
 }
 
 .flex-menu-item:hover {
-    transform: scale(1.1);
+    background-color: rgba(180, 180, 180, 0.2);
+}
+
+.flex-menu-item:active {
+    background-color: rgba(180, 180, 180, 0.4);
 }
 
 .flex-menu-text {
