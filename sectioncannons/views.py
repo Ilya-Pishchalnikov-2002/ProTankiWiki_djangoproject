@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse
 from django.views import View
-from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect, Http404
 from django.db.models import Q
 from sectioncannons.models import *
 from sectionpaints.models import Paint
@@ -29,7 +28,7 @@ class SmokiPageView(View):
         resist_paints = Paint.objects.filter(Q(resist_smoky__isnull=False) &
                                              Q(resist_all__isnull=True)).order_by('resist_smoky')
 
-        kits = TankKit.objects.filter(cannon="4")
+        kits = TankKit.objects.filter(cannon=cannon_modifications[0].cannon)
 
         data = {"cannon_modifications": cannon_modifications,
                 "resist_paints": resist_paints,
@@ -44,7 +43,7 @@ class FirebirdPageView(View):
         resist_paints = Paint.objects.filter(Q(resist_firebird__isnull=False) &
                                              Q(resist_all__isnull=True)).order_by('resist_firebird')
 
-        kits = TankKit.objects.filter(cannon="5")
+        kits = TankKit.objects.filter(cannon=cannon_modifications[0].cannon)
 
         data = {"cannon_modifications": cannon_modifications,
                 "resist_paints": resist_paints,
@@ -59,7 +58,7 @@ class TwinsPageView(View):
         resist_paints = Paint.objects.filter(Q(resist_twins__isnull=False) &
                                              Q(resist_all__isnull=True)).order_by('resist_twins')
 
-        kits = TankKit.objects.filter(cannon="6")
+        kits = TankKit.objects.filter(cannon=cannon_modifications[0].cannon)
 
         data = {"cannon_modifications": cannon_modifications,
                 "resist_paints": resist_paints,
@@ -74,7 +73,7 @@ class RailgunPageView(View):
         resist_paints = Paint.objects.filter(Q(resist_railgun__isnull=False) &
                                              Q(resist_all__isnull=True)).order_by('resist_railgun')
 
-        kits = TankKit.objects.filter(cannon="7")
+        kits = TankKit.objects.filter(cannon=cannon_modifications[0].cannon)
 
         data = {"cannon_modifications": cannon_modifications,
                 "resist_paints": resist_paints,
@@ -89,7 +88,7 @@ class HammerPageView(View):
         resist_paints = Paint.objects.filter(Q(resist_hammer__isnull=False) &
                                              Q(resist_all__isnull=True)).order_by('resist_hammer')
 
-        kits = TankKit.objects.filter(cannon="8")
+        kits = TankKit.objects.filter(cannon=cannon_modifications[0].cannon)
 
         data = {"cannon_modifications": cannon_modifications,
                 "resist_paints": resist_paints,
@@ -104,7 +103,7 @@ class IsidaPageView(View):
         resist_paints = Paint.objects.filter(Q(resist_isida__isnull=False) &
                                              Q(resist_all__isnull=True)).order_by('resist_isida')
 
-        kits = TankKit.objects.filter(cannon="9")
+        kits = TankKit.objects.filter(cannon=cannon_modifications[0].cannon)
 
         data = {"cannon_modifications": cannon_modifications,
                 "resist_paints": resist_paints,
@@ -119,7 +118,7 @@ class VulcanPageView(View):
         resist_paints = Paint.objects.filter(Q(resist_vulcan__isnull=False) &
                                              Q(resist_all__isnull=True)).order_by('resist_vulcan')
 
-        kits = TankKit.objects.filter(cannon="10")
+        kits = TankKit.objects.filter(cannon=cannon_modifications[0].cannon)
 
         data = {"cannon_modifications": cannon_modifications,
                 "resist_paints": resist_paints,
@@ -134,7 +133,7 @@ class FreezePageView(View):
         resist_paints = Paint.objects.filter(Q(resist_freeze__isnull=False) &
                                              Q(resist_all__isnull=True)).order_by('resist_freeze')
 
-        kits = TankKit.objects.filter(cannon="11")
+        kits = TankKit.objects.filter(cannon=cannon_modifications[0].cannon)
 
         data = {"cannon_modifications": cannon_modifications,
                 "resist_paints": resist_paints,
@@ -149,7 +148,7 @@ class ThunderPageView(View):
         resist_paints = Paint.objects.filter(Q(resist_thunder__isnull=False) &
                                              Q(resist_all__isnull=True)).order_by('resist_thunder')
 
-        kits = TankKit.objects.filter(cannon="12")
+        kits = TankKit.objects.filter(cannon=cannon_modifications[0].cannon)
 
         data = {"cannon_modifications": cannon_modifications,
                 "resist_paints": resist_paints,
@@ -164,7 +163,7 @@ class RicochetPageView(View):
         resist_paints = Paint.objects.filter(Q(resist_ricochet__isnull=False) &
                                              Q(resist_all__isnull=True)).order_by('resist_ricochet')
 
-        kits = TankKit.objects.filter(cannon="13")
+        kits = TankKit.objects.filter(cannon=cannon_modifications[0].cannon)
 
         data = {"cannon_modifications": cannon_modifications,
                 "resist_paints": resist_paints,
@@ -179,7 +178,7 @@ class ShaftPageView(View):
         resist_paints = Paint.objects.filter(Q(resist_shaft__isnull=False) &
                                              Q(resist_all__isnull=True)).order_by('resist_shaft')
 
-        kits = TankKit.objects.filter(cannon="14")
+        kits = TankKit.objects.filter(cannon=cannon_modifications[0].cannon)
 
         data = {"cannon_modifications": cannon_modifications,
                 "resist_paints": resist_paints,

@@ -1,0 +1,8 @@
+{% load static %}
+<a class="section-item-2" href="/пушки/{{ item.cannon.slug_name }}">
+    <div align="center">
+        <h3 class="section-item-name">{{ item.cannon.name }} {{ item.modification }}</h3>
+        <br>
+        <img src="{{ item.image.url }}">
+    </div>
+</a>

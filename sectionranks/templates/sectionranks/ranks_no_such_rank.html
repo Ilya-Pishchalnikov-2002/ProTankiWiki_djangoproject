@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Не найдено звание{% endblock %}
+
+{% block add_css %}<link rel="stylesheet" href="{% static 'sectionranks/css/ranks-detail_style.css' %}">
+<style>
+body {
+    margin: 0px;
+    background-image: url({% static 'main/img/tanki_bg.jpg' %});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+</style>{% endblock %}
+
+{% block content %}
+{% include "main/includes_header.html" %}
+<main>
+    <h1 id="title">Не найдено звание</h1>
+
+    <div class="menu">
+        <a href="{% url 'ranks-main' %}"><div class="button-back">Вернуться к разделу <b>Звания</b></div></a>
+
+        <p class="text">Звание "{{ rank }}" не найдено.</p>
+    </div>
+</main>
+{% endblock %}

@@ -80,25 +80,37 @@ header img {
     justify-content: center;
 }
 
+.item-link {
+    text-decoration-line: none;
+}
+
 .section-item {
-    width: 280px;
-    height: 375px;
+    width: 235px;
+    height: 250px;
     margin: 15px;
-    padding-bottom: 5px;
     border: 1px solid rgba(220, 220, 220, 0.8);
     border-radius: 15px;
     background-color: rgba(180, 180, 180, 0.1);
+    text-decoration-line: none;
+    transition-property: background-color;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
 }
 
-.section-item-descr {
+.section-item:hover {
+    background-color: rgba(180, 180, 180, 0.2);
+}
+
+.section-item:active {
+    background-color: rgba(180, 180, 180, 0.4);
+}
+
+.inner-wrapper {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    height: 70px;
-}
-
-.img_wrapper {
-    height: 110px;
+    padding: 3px 6px;
 }
 
 .section-item-name {
@@ -111,74 +123,8 @@ header img {
 
 .section-item-text {
     font-size: 16px;
-    font-weight: bold;
     font-family: Arial, sans-serif;
     color: white;
     text-align: center;
     margin: 10px;
-}
-
-.flex-section-kits {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.inner-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 3px 0px;
-}
-
-.section-item-kits {
-    width: 280px;
-    margin: 15px;
-    padding-bottom: 5px;
-    border: 1px solid rgba(220, 220, 220, 0.8);
-    border-radius: 15px;
-    background-color: rgba(180, 180, 180, 0.1);
-}
-
-.section-item-kits-text {
-    font-size: 16px;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    color: white;
-    text-align: left;
-    text-decoration-line: none;
-    margin: 10px;
-}
-
-.section-item-kits-link {
-    font-size: 16px;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    color: white;
-    text-align: left;
-    text-decoration-line: none;
-    margin: 8px;
-    transition-property: color;
-}
-
-.section-item-kits-link:hover {
-    color: rgb(34, 81, 212);
-}
-
-.section-item-kits-link:active {
-    color: rgb(54, 105, 249);
-}
-
-.section-item-kits-discount {
-    font-size: 18px;
-    color: white;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    background-color: red;
-    border: 2px solid white;
-    border-radius: 20px;
-    margin: auto;
-    padding: 3px;
 }

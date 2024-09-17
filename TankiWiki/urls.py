@@ -13,5 +13,6 @@ urlpatterns = [
     path("пушки/", include("sectioncannons.urls")),
     path("корпуса/", include("sectionhulls.urls")),
     path("краски/", include("sectionpaints.urls")),
-    path("комплекты/", include("sectionkits.urls"))
+    path("комплекты/", include("sectionkits.urls")),
+    path("звания/", include("sectionranks.urls"))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -22,7 +22,7 @@ class HunterPageView(View):
     def get(self, request):
         hull_modifications = Hunter.objects.all()
 
-        kits = TankKit.objects.filter(hull="1")
+        kits = TankKit.objects.filter(hull=hull_modifications[0].hull)
 
         data = {"hull_modifications": hull_modifications,
                 "kits": kits}
@@ -34,7 +34,7 @@ class VaspPageView(View):
     def get(self, request):
         hull_modifications = Vasp.objects.all()
 
-        kits = TankKit.objects.filter(hull="2")
+        kits = TankKit.objects.filter(hull=hull_modifications[0].hull)
 
         data = {"hull_modifications": hull_modifications,
                 "kits": kits}
@@ -46,7 +46,7 @@ class TitanPageView(View):
     def get(self, request):
         hull_modifications = Titan.objects.all()
 
-        kits = TankKit.objects.filter(hull="3")
+        kits = TankKit.objects.filter(hull=hull_modifications[0].hull)
 
         data = {"hull_modifications": hull_modifications,
                 "kits": kits}
@@ -58,7 +58,7 @@ class DictatorPageView(View):
     def get(self, request):
         hull_modifications = Dictator.objects.all()
 
-        kits = TankKit.objects.filter(hull="4")
+        kits = TankKit.objects.filter(hull=hull_modifications[0].hull)
 
         data = {"hull_modifications": hull_modifications,
                 "kits": kits}
@@ -70,7 +70,7 @@ class HornetPageView(View):
     def get(self, request):
         hull_modifications = Hornet.objects.all()
 
-        kits = TankKit.objects.filter(hull="5")
+        kits = TankKit.objects.filter(hull=hull_modifications[0].hull)
 
         data = {"hull_modifications": hull_modifications,
                 "kits": kits}
@@ -82,7 +82,7 @@ class MammothPageView(View):
     def get(self, request):
         hull_modifications = Mammoth.objects.all()
 
-        kits = TankKit.objects.filter(hull="6")
+        kits = TankKit.objects.filter(hull=hull_modifications[0].hull)
 
         data = {"hull_modifications": hull_modifications,
                 "kits": kits}
@@ -94,7 +94,7 @@ class VikingPageView(View):
     def get(self, request):
         hull_modifications = Viking.objects.all()
 
-        kits = TankKit.objects.filter(hull="7")
+        kits = TankKit.objects.filter(hull=hull_modifications[0].hull)
 
         data = {"hull_modifications": hull_modifications,
                 "kits": kits}

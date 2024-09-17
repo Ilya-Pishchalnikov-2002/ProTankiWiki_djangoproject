@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ rank.rank_name }}{% endblock %}
+
+{% block add_css %}<link rel="stylesheet" href="{% static 'sectionranks/css/ranks-detail_style.css' %}">
+<style>
+body {
+    margin: 0px;
+    background-image: url({% static 'main/img/tanki_bg.jpg' %});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+</style>{% endblock %}
+
+{% block content %}
+{% include "main/includes_header.html" %}
+<main>
+    <h1 id="title">{{ rank.rank_name }}</h1>
+
+    <div class="menu">
+        <a href="{% url 'ranks-main' %}"><div class="button-back">Вернуться к разделу <b>Звания</b></div></a>
+
+        <hr>
+        <h2 class="text_section">Информация о звании</h2>
+        <hr>
+        <br>
+
+        <div class="flex-section">
+            {% if prev_rank is not Null %}
+            <a href="{% url 'ranks-detail' r=prev_rank.slug_name %}" class="item-link">
+                <div class="section-item" align="center">
+                    <p class="text-description">Предыдущее звание:</p>
+                    <img src="{{ prev_rank.rank_icon.url }}" title="{{ prev_rank.rank_name }}">
+                </div>
+            </a>
+            {% else %}
+            <div class="section-item" align="center">
+                <p class="text-description">Предыдущее звание:</p>
+                <p class="text-description"><i>Нет</i></p>
+            </div>
+            {% endif %}
+
+            <div class="section-inner-wrapper" align="center">
+                <div align="center">
+                    <p class="text-description">№{{ rank.id }}) <b>{{ rank.rank_name }}</b></p>
+                    <img src="{{ rank.rank_icon.url }}">
+                </div>
+                <div>
+                    <p class="text-description"><b>Опыт:</b> {{ rank.exp_start }}</p>
+                    <p class="text-description"><b>До следующего звания:</b> +{{ rank.exp_next }}</p>
+                    <p class="text-description"><b>Награда:</b> {{ rank.cry_bonus }} <img src="{% static 'main/img/small_icons/cry.png' %}" title="Кристаллов"></p>
+                </div>
+            </div>
+
+            {% if next_rank is not Null %}
+            <a href="{% url 'ranks-detail' r=next_rank.slug_name %}" class="item-link">
+                <div class="section-item" align="center">
+                    <p class="text-description">Следующее звание:</p>
+                    <img src="{{ next_rank.rank_icon.url }}" title="{{ next_rank.rank_name }}">
+                </div>
+            </a>
+            {% else %}
+            <div class="section-item" align="center">
+                <p class="text-description">Следующее звание:</p>
+                <p class="text-description"><i>Нет</i></p>
+            </div>
+            {% endif %}
+        </div>
+
+        <br>
+        <hr>
+        <h2 class="text_section">Доступно на этом звании</h2>
+        <hr>
+        <br>
+
+        <hr>
+        <h6 class="section-item-name">Пушки</h6>
+        <hr>
+        <div class="flex-section-2">
+            {% for item in rank.smoki_set.all %}
+            {% include 'sectionranks/includes_unlocked_cannons.html' %}
+            {% endfor %}
+
+            {% for item in rank.firebird_set.all %}
+            {% include 'sectionranks/includes_unlocked_cannons.html' %}
+            {% endfor %}
+
+            {% for item in rank.twins_set.all %}
+            {% include 'sectionranks/includes_unlocked_cannons.html' %}
+            {% endfor %}
+
+            {% for item in rank.railgun_set.all %}
+            {% include 'sectionranks/includes_unlocked_cannons.html' %}
+            {% endfor %}
+
+            {% for item in rank.hammer_set.all %}
+            {% include 'sectionranks/includes_unlocked_cannons.html' %}
+            {% endfor %}
+
+            {% for item in rank.isida_set.all %}
+            {% include 'sectionranks/includes_unlocked_cannons.html' %}
+            {% endfor %}
+
+            {% for item in rank.vulcan_set.all %}
+            {% include 'sectionranks/includes_unlocked_cannons.html' %}
+            {% endfor %}
+
+            {% for item in rank.freeze_set.all %}
+            {% include 'sectionranks/includes_unlocked_cannons.html' %}
+            {% endfor %}
+
+            {% for item in rank.thunder_set.all %}
+            {% include 'sectionranks/includes_unlocked_cannons.html' %}
+            {% endfor %}
+
+            {% for item in rank.ricochet_set.all %}
+            {% include 'sectionranks/includes_unlocked_cannons.html' %}
+            {% endfor %}
+
+            {% for item in rank.shaft_set.all %}
+            {% include 'sectionranks/includes_unlocked_cannons.html' %}
+            {% endfor %}
+        </div>
+        <hr>
+
+        <h6 class="section-item-name">Корпуса</h6>
+        <hr>
+        <div class="flex-section-2">
+            {% for item in rank.hunter_set.all %}
+            {% include 'sectionranks/includes_unlocked_hulls.html' %}
+            {% endfor %}
+
+            {% for item in rank.vasp_set.all %}
+            {% include 'sectionranks/includes_unlocked_hulls.html' %}
+            {% endfor %}
+
+            {% for item in rank.titan_set.all %}
+            {% include 'sectionranks/includes_unlocked_hulls.html' %}
+            {% endfor %}
+
+            {% for item in rank.dictator_set.all %}
+            {% include 'sectionranks/includes_unlocked_hulls.html' %}
+            {% endfor %}
+
+            {% for item in rank.hornet_set.all %}
+            {% include 'sectionranks/includes_unlocked_hulls.html' %}
+            {% endfor %}
+
+            {% for item in rank.mammoth_set.all %}
+            {% include 'sectionranks/includes_unlocked_hulls.html' %}
+            {% endfor %}
+
+            {% for item in rank.viking_set.all %}
+            {% include 'sectionranks/includes_unlocked_hulls.html' %}
+            {% endfor %}
+        </div>
+        <hr>
+
+        <h6 class="section-item-name">Краски</h6>
+        <hr>
+        <div class="flex-section-2">
+            {% for item in rank.paint_set.all %}
+            {% include 'sectionranks/includes_unlocked_paints.html' %}
+            {% endfor %}
+        </div>
+        <hr>
+
+        <h6 class="section-item-name">Комплекты</h6>
+        <hr>
+        <div class="flex-section-2">
+            {% for item in arm_kits %}
+            {% include 'sectionranks/includes_unlocked_kits.html' %}
+            {% endfor %}
+
+            {% for item in supply_kits %}
+            {% include 'sectionranks/includes_unlocked_kits.html' %}
+            {% endfor %}
+
+            {% for item in kits %}
+            {% include 'sectionranks/includes_unlocked_kits.html' %}
+            {% endfor %}
+        </div>
+        <hr>
+
+    </div>
+</main>
+{% endblock %}

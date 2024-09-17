@@ -32,7 +32,7 @@ body {
         <div class="flex-section">
 			{% for paint in paint_list %}
 			<div class="section-item">
-				<a class="item-link" href="/краски/{{ paint.slug_name }}">
+				<a class="item-link" href="{% url 'paints-detail' p=paint.slug_name %}">
 					<h3 class="section-item-name">{{ paint.name }}</h3>
 					<div class="img_wrapper" align="center">
 						<img src="{{ paint.image_icon.url }}"><br>
