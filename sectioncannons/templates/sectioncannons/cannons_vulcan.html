@@ -6,7 +6,6 @@
 {% block add_css %}<link rel="stylesheet" href="{% static 'sectioncannons/css/cannons-detail_style.css' %}">
 <style>
 body {
-    margin: 0px;
     background-image: url({% static 'main/img/tanki_bg.jpg' %});
     background-repeat: no-repeat;
     background-size: cover;
@@ -15,162 +14,165 @@ body {
 </style>{% endblock %}
 
 {% block content %}
-{% include "main/includes_header.html" %}
-<main>
-    <h1 id="title">Вулкан</h1>
+<div class="bodywrap">
+	{% include "main/includes_header.html" %}
+	<main>
+		<h1 id="title">Вулкан</h1>
 
-    <div class="menu">
+		<div class="menu">
 
-		<a href="{% url 'cannons-main' %}"><div class="button-back">Вернуться к разделу <b>Пушки</b></div></a>
+			<a href="{% url 'cannons-main' %}"><div class="button-back">Вернуться к разделу <b>Пушки</b></div></a>
 
-        <hr>
-        <h2 class="text_section">Описание пушки</h2>
-        <hr>
+			<hr>
+			<h2 class="text_section">Описание пушки</h2>
+			<hr>
 
-		<p class="text">Скорострельная пушка-пулемёт для боя на средней и дальней дистанциях. Она способна вести огонь бесконечно долго, но при продолжительной стрельбе начинает нагревать танк и наносить ему урон. Уникальной особенностью пушки является гироскоп. При раскрутке стволов Вулкан фиксируется в направлении выстрела. Сбить такой прицел очень сложно. Это первая пушка в игре, которая позволяет вам управлять корпусом, в то время как башня направлена в нужную сторону.</p>
+			<p class="text">Скорострельная пушка-пулемёт для боя на средней и дальней дистанциях. Она способна вести огонь бесконечно долго, но при продолжительной стрельбе начинает нагревать танк и наносить ему урон. Уникальной особенностью пушки является гироскоп. При раскрутке стволов Вулкан фиксируется в направлении выстрела. Сбить такой прицел очень сложно. Это первая пушка в игре, которая позволяет вам управлять корпусом, в то время как башня направлена в нужную сторону.</p>
 
-        <p class="text"><b>Описание в гараже:</b><br>
-			Скорострельная пушка, отлично подходящая для боёв на средних и дальних дистанциях. Обладает уникальной системой управления, препятствующей сбиванию прицела даже под шквальным огнём противника. Помните, что продолжительная стрельба может привести к перегреву и повредить ваш танк!</p>
+			<p class="text"><b>Описание в гараже:</b><br>
+				Скорострельная пушка, отлично подходящая для боёв на средних и дальних дистанциях. Обладает уникальной системой управления, препятствующей сбиванию прицела даже под шквальным огнём противника. Помните, что продолжительная стрельба может привести к перегреву и повредить ваш танк!</p>
 
-		<hr>
-        <h2 class="text_section">Таблица характеристик пушки</h2>
-        <hr>
-        <br>
+			<hr>
+			<h2 class="text_section">Таблица характеристик пушки</h2>
+			<hr>
+			<br>
 
-        <table align="center">
-            <thead>
-                <tr>
-                    <th>Модификация</th>
-                    <td>М0</td>
-                    <td>М1</td>
-                    <td>М2</td>
-                    <td>М3</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th>Изображение</th>
-                    {% for c in cannon_modifications %}
-                    <td><img src="{{ c.image.url }}" width="85%"></td>
-                    {% endfor %}
-                </tr>
-				<tr>
-					<th>Требуемое звание</th>
-					{% for c in cannon_modifications %}
-					<td><a href="/звания/{{ c.rank_required.slug_name }}"><img src="{{ c.rank_required.rank_icon.url }}" title="{{ c.rank_required.rank_name }}"></a></td>
-					{% endfor %}
-				</tr>
-				<tr>
-					<th>Стоимость</th>
-					{% for c in cannon_modifications %}
-					<td>{{ c.cost }} <img src="{% static 'main/img/small_icons/cry.png' %}" title="Кристаллов"></td>
-					{% endfor %}
-				</tr>
-				<tr>
-					<th><img class="icon" src="{% static 'main/img/small_icons/dmg.png' %}"> Урон (хп/сек)</th>
-					{% for c in cannon_modifications %}
-					<td>{{ c.damage_hp_sec }}</td>
-					{% endfor %}
-				</tr>
-				<tr>
-					<th><img class="icon" src="{% static 'main/img/small_icons/impact.png' %}"> Сила удара</th>
-					{% for c in cannon_modifications %}
-					<td>{{ c.impact_force }}</td>
-					{% endfor %}
-				</tr>
-				<tr>
-					<th>Отдача</th>
-					{% for c in cannon_modifications %}
-					<td>{{ c.recoil_force }}</td>
-					{% endfor %}
-				</tr>
-				<tr>
-					<th><img class="icon" src="{% static 'main/img/small_icons/reloading.png' %}"> Время до перегрева (сек)</th>
-					{% for c in cannon_modifications %}
-					<td>{{ c.overheating_time }}</td>
-					{% endfor %}
-				</tr>
-				<tr>
-					<th>Самонагрев</th>
-					{% for c in cannon_modifications %}
-					<td>{{ c.self_heating }}</td>
-					{% endfor %}
-				</tr>
-				<tr>
-					<th>Ограничение на температуру</th>
-					{% for c in cannon_modifications %}
-					<td>{{ c.self_heat_limit }}</td>
-					{% endfor %}
-				</tr>
-				<tr>
-					<th>Раскрутка стволов (сек)</th>
-					{% for c in cannon_modifications %}
-					<td>{{ c.barrel_spin_up_time }}</td>
-					{% endfor %}
-				</tr>
-				<tr>
-					<th>Остановка стволов (сек)</th>
-					{% for c in cannon_modifications %}
-					<td>{{ c.barrel_spin_down_time }}</td>
-					{% endfor %}
-				</tr>
-				<tr>
-					<th><img class="icon" src="{% static 'main/img/small_icons/rotation.png' %}"> Скорость поворота (град/сек)</th>
-					{% for c in cannon_modifications %}
-					<td>{{ c.rotation_speed }}</td>
-					{% endfor %}
-				</tr>
-				<tr>
-					<th>Замедление поворта при стрельбе</th>
-					{% for c in cannon_modifications %}
-					<td>{{ c.rotation_deceleration }}%</td>
-					{% endfor %}
-				</tr>
-				<tr>
-					<th>Дальность макс. поражения (м)</th>
-					{% for c in cannon_modifications %}
-					<td>{{ c.max_dmg_range }}</td>
-					{% endfor %}
-				</tr>
-				<tr>
-					<th><img class="icon" src="{% static 'main/img/small_icons/range.png' %}"> Дальность мин. поражения (м)</th>
-					{% for c in cannon_modifications %}
-					<td>{{ c.min_dmg_range }}</td>
-					{% endfor %}
-				</tr>
-				<tr>
-					<th><img class="icon" src="{% static 'main/img/small_icons/dmg_percent.png' %}"> Процент слабого поражения</th>
-					{% for c in cannon_modifications %}
-					<td>{{ c.weak_dmg_percent }}%</td>
-					{% endfor %}
-				</tr>
-            </tbody>
-        </table>
-		
-		<br>
-		<hr>
-		<h2 class="text_section">Краски с защитой от Вулкана</h2>
-		<hr>
+			<table align="center">
+				<thead>
+					<tr>
+						<th>Модификация</th>
+						<td>М0</td>
+						<td>М1</td>
+						<td>М2</td>
+						<td>М3</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>Изображение</th>
+						{% for c in cannon_modifications %}
+						<td><img src="{{ c.image.url }}" width="85%"></td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<th>Требуемое звание</th>
+						{% for c in cannon_modifications %}
+						<td><a href="/звания/{{ c.rank_required.slug_name }}"><img src="{{ c.rank_required.rank_icon.url }}" title="{{ c.rank_required.rank_name }}"></a></td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<th>Стоимость</th>
+						{% for c in cannon_modifications %}
+						<td>{{ c.cost }} <img src="{% static 'main/img/small_icons/cry.png' %}" title="Кристаллов"></td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<th><img class="icon" src="{% static 'main/img/small_icons/dmg.png' %}"> Урон (хп/сек)</th>
+						{% for c in cannon_modifications %}
+						<td>{{ c.damage_hp_sec }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<th><img class="icon" src="{% static 'main/img/small_icons/impact.png' %}"> Сила удара</th>
+						{% for c in cannon_modifications %}
+						<td>{{ c.impact_force }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<th>Отдача</th>
+						{% for c in cannon_modifications %}
+						<td>{{ c.recoil_force }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<th><img class="icon" src="{% static 'main/img/small_icons/reloading.png' %}"> Время до перегрева (сек)</th>
+						{% for c in cannon_modifications %}
+						<td>{{ c.overheating_time }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<th>Самонагрев</th>
+						{% for c in cannon_modifications %}
+						<td>{{ c.self_heating }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<th>Ограничение на температуру</th>
+						{% for c in cannon_modifications %}
+						<td>{{ c.self_heat_limit }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<th>Раскрутка стволов (сек)</th>
+						{% for c in cannon_modifications %}
+						<td>{{ c.barrel_spin_up_time }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<th>Остановка стволов (сек)</th>
+						{% for c in cannon_modifications %}
+						<td>{{ c.barrel_spin_down_time }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<th><img class="icon" src="{% static 'main/img/small_icons/rotation.png' %}"> Скорость поворота (град/сек)</th>
+						{% for c in cannon_modifications %}
+						<td>{{ c.rotation_speed }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<th>Замедление поворта при стрельбе</th>
+						{% for c in cannon_modifications %}
+						<td>{{ c.rotation_deceleration }}%</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<th>Дальность макс. поражения (м)</th>
+						{% for c in cannon_modifications %}
+						<td>{{ c.max_dmg_range }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<th><img class="icon" src="{% static 'main/img/small_icons/range.png' %}"> Дальность мин. поражения (м)</th>
+						{% for c in cannon_modifications %}
+						<td>{{ c.min_dmg_range }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<th><img class="icon" src="{% static 'main/img/small_icons/dmg_percent.png' %}"> Процент слабого поражения</th>
+						{% for c in cannon_modifications %}
+						<td>{{ c.weak_dmg_percent }}%</td>
+						{% endfor %}
+					</tr>
+				</tbody>
+			</table>
 
-		<div class="flex-section">
-			{% for paint in resist_paints %}
-			<a class="section-item" href="/краски/{{ paint.slug_name }}">
-				<h3 class="section-item-name">{{ paint.name }}</h3>
-				<div class="img_wrapper" align="center">
-					<img src="{{ paint.image_icon.url }}"><br>
-				</div>
-				<h6 class="section-item-name"><img class="icon" src="{% static 'main/img/small_icons/resist_vulcan.png' %}">
-					{{ paint.resist_vulcan }}%</h6>
-			</a>
-			{% endfor %}
+			<br>
+			<hr>
+			<h2 class="text_section">Краски с защитой от Вулкана</h2>
+			<hr>
+
+			<div class="flex-section">
+				{% for paint in resist_paints %}
+				<a class="section-item" href="/краски/{{ paint.slug_name }}">
+					<h3 class="section-item-name">{{ paint.name }}</h3>
+					<div class="img_wrapper" align="center">
+						<img src="{{ paint.image_icon.url }}"><br>
+					</div>
+					<h6 class="section-item-name"><img class="icon" src="{% static 'main/img/small_icons/resist_vulcan.png' %}">
+						{{ paint.resist_vulcan }}%</h6>
+				</a>
+				{% endfor %}
+			</div>
+
+			<hr>
+			<h2 class="text_section">Комплекты, содержащие Вулкан</h2>
+			<hr>
+
+			{% include "main/includes_section_kits.html" %}
+
 		</div>
-
-		<hr>
-		<h2 class="text_section">Комплекты, содержащие Вулкан</h2>
-		<hr>
-
-		{% include "main/includes_section_kits.html" %}
-
-    </div>
-</main>
+	</main>
+</div>
+{% include "main/includes_footer.html" %}
 {% endblock %}

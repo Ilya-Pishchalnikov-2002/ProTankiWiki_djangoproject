@@ -6,7 +6,6 @@
 {% block add_css %}<link rel="stylesheet" href="{% static 'sectionhulls/css/hulls-detail_style.css' %}">
 <style>
 body {
-    margin: 0px;
     background-image: url({% static 'main/img/tanki_bg.jpg' %});
     background-repeat: no-repeat;
     background-size: cover;
@@ -15,37 +14,40 @@ body {
 </style>{% endblock %}
 
 {% block content %}
-{% include "main/includes_header.html" %}
-<main>
-    <h1 id="title">Хорнет</h1>
+<div class="bodywrap">
+    {% include "main/includes_header.html" %}
+    <main>
+        <h1 id="title">Хорнет</h1>
 
-    <div class="menu">
+        <div class="menu">
 
-		<a href="{% url 'hulls-main' %}"><div class="button-back">Вернуться к разделу <b>Корпуса</b></div></a>
+            <a href="{% url 'hulls-main' %}"><div class="button-back">Вернуться к разделу <b>Корпуса</b></div></a>
 
-        <hr>
-        <h2 class="text_section">Описание корпуса</h2>
-        <hr>
+            <hr>
+            <h2 class="text_section">Описание корпуса</h2>
+            <hr>
 
-        <p class="text">
-			<b>Описание в гараже:</b><br>
-            Корпус для тех, кто хотел бы получить скорость выше средней, при этом не забыв про броню. Немного тугой в поворотах, но очень устойчивый малыш. Хорошо смотрится почти с любой пушкой. Корпус используется при совершении молниеносных нападений, также им комплектуются танки десанта. В народе этот корпус зовётся «Хорьком».
-		</p>
+            <p class="text">
+                <b>Описание в гараже:</b><br>
+                Корпус для тех, кто хотел бы получить скорость выше средней, при этом не забыв про броню. Немного тугой в поворотах, но очень устойчивый малыш. Хорошо смотрится почти с любой пушкой. Корпус используется при совершении молниеносных нападений, также им комплектуются танки десанта. В народе этот корпус зовётся «Хорьком».
+            </p>
 
-		<hr>
-        <h2 class="text_section">Таблица характеристик корпуса</h2>
-        <hr>
-        <br>
+            <hr>
+            <h2 class="text_section">Таблица характеристик корпуса</h2>
+            <hr>
+            <br>
 
-        {% include "sectionhulls/includes_table.html" %}
-		
-		<br>
-		<hr>
-		<h2 class="text_section">Комплекты, содержащие Хорнет</h2>
-		<hr>
+            {% include "sectionhulls/includes_table.html" %}
 
-		{% include "main/includes_section_kits.html" %}
+            <br>
+            <hr>
+            <h2 class="text_section">Комплекты, содержащие Хорнет</h2>
+            <hr>
 
-    </div>
-</main>
+            {% include "main/includes_section_kits.html" %}
+
+        </div>
+    </main>
+</div>
+{% include "main/includes_footer.html" %}
 {% endblock %}

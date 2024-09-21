@@ -6,7 +6,6 @@
 {% block add_css %}<link rel="stylesheet" href="{% static 'sectioncannons/css/cannons-main_style.css' %}">
 <style>
 body {
-    margin: 0px;
     background-image: url({% static 'main/img/tanki_bg.jpg' %});
     background-repeat: no-repeat;
     background-size: cover;
@@ -15,81 +14,84 @@ body {
 </style>{% endblock %}
 
 {% block content %}
-{% include "main/includes_header.html" %}
-<main>
-    <h1 id="title">Пушки</h1>
+<div class="bodywrap">
+    {% include "main/includes_header.html" %}
+    <main>
+        <h1 id="title">Пушки</h1>
 
-    <div class="menu">
+        <div class="menu">
 
-        <a href="/"><div class="button-back">Вернуться на главную</div></a>
+            <a href="/"><div class="button-back">Вернуться на главную</div></a>
 
-        <p class="text">Оружие в «ProTanki» играет важную роль. В зависимости от того, какую пушку вы выберете, будет зависеть ваш индивидуальный стиль игры: стремительные и молниеносные атаки либо огонь из защищенных позиций.</p>
-        <p class="text">При этом понравившееся оружие можно модернизировать. Все пушки имеют четыре модификации: от самой слабой до самой сильной (от M0 до M3). Соответственно, цена самой младшей модификации невысока. Вы сможете попробовать наиболее популярные тактики уже на младших званиях, не потратив большого количества кристаллов. Но получить сразу всё не получится. Ту или иную пушку и модификацию пушки можно купить только с определённого звания.</p>
+            <p class="text">Оружие в «ProTanki» играет важную роль. В зависимости от того, какую пушку вы выберете, будет зависеть ваш индивидуальный стиль игры: стремительные и молниеносные атаки либо огонь из защищенных позиций.</p>
+            <p class="text">При этом понравившееся оружие можно модернизировать. Все пушки имеют четыре модификации: от самой слабой до самой сильной (от M0 до M3). Соответственно, цена самой младшей модификации невысока. Вы сможете попробовать наиболее популярные тактики уже на младших званиях, не потратив большого количества кристаллов. Но получить сразу всё не получится. Ту или иную пушку и модификацию пушки можно купить только с определённого звания.</p>
 
-        <hr>
-        <h2 class="text_section">Ближний бой</h2>
-        <hr>
+            <hr>
+            <h2 class="text_section">Ближний бой</h2>
+            <hr>
 
-        <div class="flex-section">
-            {% for cannon in close_combat %}
-            <a class="section-item" href="/пушки/{{ cannon.slug_name }}">
-                <div align="center">
-                    <h3 class="section-item-name">{{ cannon.name }}</h3>
-                    <br>
-                    <img src="{{ cannon.image.url }}">
-                </div>
-            </a>
-            {% endfor %}
+            <div class="flex-section">
+                {% for cannon in close_combat %}
+                <a class="section-item" href="/пушки/{{ cannon.slug_name }}">
+                    <div align="center">
+                        <h3 class="section-item-name">{{ cannon.name }}</h3>
+                        <br>
+                        <img src="{{ cannon.image.url }}">
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+
+            <hr>
+            <h2 class="text_section">Малая дальность</h2>
+            <hr>
+
+            <div class="flex-section">
+                {% for cannon in short_range %}
+                <a class="section-item" href="/пушки/{{ cannon.slug_name }}">
+                    <div align="center">
+                        <h3 class="section-item-name">{{ cannon.name }}</h3>
+                        <br>
+                        <img src="{{ cannon.image.url }}">
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+
+            <hr>
+            <h2 class="text_section">Средняя дальность</h2>
+            <hr>
+
+            <div class="flex-section">
+                {% for cannon in medium_range %}
+                <a class="section-item" href="/пушки/{{ cannon.slug_name }}">
+                    <div align="center">
+                        <h3 class="section-item-name">{{ cannon.name }}</h3>
+                        <br>
+                        <img src="{{ cannon.image.url }}">
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+
+            <hr>
+            <h2 class="text_section">Большая дальность</h2>
+            <hr>
+
+            <div class="flex-section">
+                {% for cannon in long_range %}
+                <a class="section-item" href="/пушки/{{ cannon.slug_name }}">
+                    <div align="center">
+                        <h3 class="section-item-name">{{ cannon.name }}</h3>
+                        <br>
+                        <img src="{{ cannon.image.url }}">
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+
         </div>
-
-        <hr>
-        <h2 class="text_section">Малая дальность</h2>
-        <hr>
-
-        <div class="flex-section">
-            {% for cannon in short_range %}
-            <a class="section-item" href="/пушки/{{ cannon.slug_name }}">
-                <div align="center">
-                    <h3 class="section-item-name">{{ cannon.name }}</h3>
-                    <br>
-                    <img src="{{ cannon.image.url }}">
-                </div>
-            </a>
-            {% endfor %}
-        </div>
-
-        <hr>
-        <h2 class="text_section">Средняя дальность</h2>
-        <hr>
-
-        <div class="flex-section">
-            {% for cannon in medium_range %}
-            <a class="section-item" href="/пушки/{{ cannon.slug_name }}">
-                <div align="center">
-                    <h3 class="section-item-name">{{ cannon.name }}</h3>
-                    <br>
-                    <img src="{{ cannon.image.url }}">
-                </div>
-            </a>
-            {% endfor %}
-        </div>
-
-        <hr>
-        <h2 class="text_section">Большая дальность</h2>
-        <hr>
-
-        <div class="flex-section">
-            {% for cannon in long_range %}
-            <a class="section-item" href="/пушки/{{ cannon.slug_name }}">
-                <div align="center">
-                    <h3 class="section-item-name">{{ cannon.name }}</h3>
-                    <br>
-                    <img src="{{ cannon.image.url }}">
-                </div>
-            </a>
-            {% endfor %}
-        </div>
-
-    </div>
-</main>
+    </main>
+</div>
+{% include "main/includes_footer.html" %}
 {% endblock %}

@@ -6,7 +6,6 @@
 {% block add_css %}<link rel="stylesheet" href="{% static 'sectionranks/css/ranks-main_style.css' %}">
 <style>
 body {
-    margin: 0px;
     background-image: url({% static 'main/img/tanki_bg.jpg' %});
     background-repeat: no-repeat;
     background-size: cover;
@@ -15,67 +14,70 @@ body {
 </style>{% endblock %}
 
 {% block content %}
-{% include "main/includes_header.html" %}
-<main>
-    <h1 id="title">Звания</h1>
+<div class="bodywrap">
+    {% include "main/includes_header.html" %}
+    <main>
+        <h1 id="title">Звания</h1>
 
-    <div class="menu">
+        <div class="menu">
 
-        <a href="/"><div class="button-back">Вернуться на главную</div></a>
+            <a href="/"><div class="button-back">Вернуться на главную</div></a>
 
-        <p class="text">
-			Звания — это способ показать и сравнить заработанный в танковых баталиях опыт игроков. Названия и значки званий в «ProTanki» созданы на основе реально существующих воинских званий.
-		</p>
-		<p class="text">
-			В игре есть 30 званий, список которых представлен ниже. Крушите вражеские танки, продвигайтесь вверх по карьерной лестнице званий и открывайте для себя новое вооружение, ведь плох тот Новобранец, который не мечтает стать Генералиссимусом!
-		</p>
+            <p class="text">
+                Звания — это способ показать и сравнить заработанный в танковых баталиях опыт игроков. Названия и значки званий в «ProTanki» созданы на основе реально существующих воинских званий.
+            </p>
+            <p class="text">
+                В игре есть 30 званий, список которых представлен ниже. Крушите вражеские танки, продвигайтесь вверх по карьерной лестнице званий и открывайте для себя новое вооружение, ведь плох тот Новобранец, который не мечтает стать Генералиссимусом!
+            </p>
 
-        <hr>
-        <h2 class="text_section">Способы получения новых званий</h2>
-        <hr>
+            <hr>
+            <h2 class="text_section">Способы получения новых званий</h2>
+            <hr>
 
-        <p class="text">
-            Текущий прогресс игрока можно отследить при помощи его звания. Для того чтобы получить следующие звание, нужно заработать определённое количество <b>очков опыта</b>.
-        </p>
-        <p class="text">
-        	Их можно получить следующими способами:
-        </p>
-        <ul class="text">
-            <li>Уничтожение противников;</li>
-            <li>Помощь в уничтожении противников;</li>
-            <li>Лечение союзников Изидой;</li>
-            <li>Манипуляции с флагами в CTF и ASL (доставка флага, взятие и перенос флага, уничтожение вражеского флагоносца, возврат флага);</li>
-            <li>Манипуляции с точками в CP (захват точки, перезахват точки);</li>
-            <li>Покупка в гараже абонемента «1000 опыта»;</li>
-            <li>Покупка премиум аккаунта, с ним можно получать на 50% очков опыта больше за каждое вышеперечисленное действие.</li>
-        </ul>
+            <p class="text">
+                Текущий прогресс игрока можно отследить при помощи его звания. Для того чтобы получить следующие звание, нужно заработать определённое количество <b>очков опыта</b>.
+            </p>
+            <p class="text">
+                Их можно получить следующими способами:
+            </p>
+            <ul class="text">
+                <li>Уничтожение противников;</li>
+                <li>Помощь в уничтожении противников;</li>
+                <li>Лечение союзников Изидой;</li>
+                <li>Манипуляции с флагами в CTF и ASL (доставка флага, взятие и перенос флага, уничтожение вражеского флагоносца, возврат флага);</li>
+                <li>Манипуляции с точками в CP (захват точки, перезахват точки);</li>
+                <li>Покупка в гараже абонемента «1000 опыта»;</li>
+                <li>Покупка премиум аккаунта, с ним можно получать на 50% очков опыта больше за каждое вышеперечисленное действие.</li>
+            </ul>
 
-        <hr>
-        <h2 class="text_section">Список званий</h2>
-        <hr>
+            <hr>
+            <h2 class="text_section">Список званий</h2>
+            <hr>
 
-        <p class="text">
-            Новые звания открывают доступ к новому вооружению и новым возможностям игры. Кроме того, за получение нового звания игроки награждаются определённой суммой кристаллов, а на начальных званиях и припасами.
-        </p>
+            <p class="text">
+                Новые звания открывают доступ к новому вооружению и новым возможностям игры. Кроме того, за получение нового звания игроки награждаются определённой суммой кристаллов, а на начальных званиях и припасами.
+            </p>
 
-        <div class="flex-section">
-			{% for rank in rank_list %}
-            <a class="section-item" href="{% url 'ranks-detail' r=rank.slug_name %}">
-                <h6 class="section-item-name">{{ rank.rank_name }}</h6>
-                <div align="center">
-                    <img src="{{ rank.rank_icon.url }}">
-                </div>
-                <hr>
-                <p class="section-item-text"><b>Опыт: </b>{{ rank.exp_start }}</p>
-                <hr>
-                <p class="section-item-text"><b>До след. звания: </b>+{{ rank.exp_next }}</p>
-                <hr>
-                <p class="section-item-text"><b>Награда: </b>{{ rank.cry_bonus }} <img src="{% static 'main/img/small_icons/cry.png' %}" title="Кристаллов"></p>
-            </a>
+            <div class="flex-section">
+                {% for rank in rank_list %}
+                <a class="section-item" href="{% url 'ranks-detail' r=rank.slug_name %}">
+                    <h6 class="section-item-name">{{ rank.rank_name }}</h6>
+                    <div align="center">
+                        <img src="{{ rank.rank_icon.url }}">
+                    </div>
+                    <hr>
+                    <p class="section-item-text"><b>Опыт: </b>{{ rank.exp_start }}</p>
+                    <hr>
+                    <p class="section-item-text"><b>До след. звания: </b>+{{ rank.exp_next }}</p>
+                    <hr>
+                    <p class="section-item-text"><b>Награда: </b>{{ rank.cry_bonus }} <img src="{% static 'main/img/small_icons/cry.png' %}" title="Кристаллов"></p>
+                </a>
 
-			{% endfor %}
-		</div>
+                {% endfor %}
+            </div>
 
-    </div>
-</main>
+        </div>
+    </main>
+</div>
+{% include "main/includes_footer.html" %}
 {% endblock %}

@@ -6,7 +6,6 @@
 {% block add_css %}<link rel="stylesheet" href="{% static 'main/css/homepage_style.css' %}">
 <style>
 body {
-    margin: 0px;
     background-image: url({% static 'main/img/tanki_bg.jpg' %});
     background-size: cover;
     background-attachment: fixed;
@@ -14,42 +13,45 @@ body {
 </style>{% endblock %}
 
 {% block content %}
-{% include "main/includes_header.html" %}
-<main>
-    <h1 id="title">Энциклопедия по игре ProTanki Online</h1>
+<div class="bodywrap">
+    {% include "main/includes_header.html" %}
+    <main>
+        <h1 id="title">Энциклопедия по игре ProTanki Online</h1>
 
-    <div class="flex-menu" align="center">
-        <a href="{% url 'cannons-main' %}" class="flex-menu-item">
-            <div>
-                <img src="{% static 'main/img/icon_guns.png' %}" alt="icon_guns">
-                <p class="flex-menu-text">Пушки</p>
-            </div>
-        </a>
-        <a href="{% url 'hulls-main' %}"  class="flex-menu-item">
-            <div>
-                <img src="{% static 'main/img/icon_hulls.png' %}" alt="icon_hulls">
-                <p class="flex-menu-text">Корпуса</p>
-            </div>
-        </a>
-        <a href="{% url 'paints-main' %}" class="flex-menu-item">
-            <div>
-                <img src="{% static 'main/img/icon_paints.png' %}" alt="icon_paints">
-                <p class="flex-menu-text">Краски</p>
-            </div>
-        </a>
-        <a href="{% url 'kits-main' %}" class="flex-menu-item">
-            <div>
-                <img src="{% static 'main/img/icon_kits.png' %}" alt="icon_kits">
-                <p class="flex-menu-text">Комплекты</p>
-            </div>
-        </a>
-        <a href="{% url 'ranks-main' %}" class="flex-menu-item">
-            <div>
-                <img src="{% static 'main/img/icon_ranks.png' %}" alt="icon_ranks">
-                <p class="flex-menu-text">Звания</p>
-            </div>
-        </a>
+        <div class="flex-menu" align="center">
+            <a href="{% url 'cannons-main' %}" class="flex-menu-item">
+                <div>
+                    <img src="{% static 'main/img/icon_guns.png' %}" alt="icon_guns">
+                    <p class="flex-menu-text">Пушки</p>
+                </div>
+            </a>
+            <a href="{% url 'hulls-main' %}"  class="flex-menu-item">
+                <div>
+                    <img src="{% static 'main/img/icon_hulls.png' %}" alt="icon_hulls">
+                    <p class="flex-menu-text">Корпуса</p>
+                </div>
+            </a>
+            <a href="{% url 'paints-main' %}" class="flex-menu-item">
+                <div>
+                    <img src="{% static 'main/img/icon_paints.png' %}" alt="icon_paints">
+                    <p class="flex-menu-text">Краски</p>
+                </div>
+            </a>
+            <a href="{% url 'kits-main' %}" class="flex-menu-item">
+                <div>
+                    <img src="{% static 'main/img/icon_kits.png' %}" alt="icon_kits">
+                    <p class="flex-menu-text">Комплекты</p>
+                </div>
+            </a>
+            <a href="{% url 'ranks-main' %}" class="flex-menu-item">
+                <div>
+                    <img src="{% static 'main/img/icon_ranks.png' %}" alt="icon_ranks">
+                    <p class="flex-menu-text">Звания</p>
+                </div>
+            </a>
 
-    </div>
-</main>
+        </div>
+    </main>
+</div>
+{% include "main/includes_footer.html" %}
 {% endblock %}
