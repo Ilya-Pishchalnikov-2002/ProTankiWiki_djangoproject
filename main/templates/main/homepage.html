@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Главная типа{% endblock %}
+{% block title %}ProTanki Online фан-вики{% endblock %}
 
 {% block add_css %}<link rel="stylesheet" href="{% static 'main/css/homepage_style.css' %}">
 <style>
@@ -17,6 +17,26 @@ body {
     {% include "main/includes_header.html" %}
     <main>
         <h1 id="title">Энциклопедия по игре ProTanki Online</h1>
+
+        <div class="text-box">
+            <p class="text">
+                <a class="link" href="https://protanki-game.com/ru">ProTanki</a> — долгожданная версия танков 2014-2017, призванная вернуть атмосферу тех годов. Проект постоянно улучшается и дорабатывается командой разработчиков, старающейся сделать всё возможное для комфортной игры.
+            </p>
+            <p class="text">
+                На этом сайте вы найдёте много полезной информации об игре, например, узнать характеристики пушки или корпуса, какие краски защищают от конкретной пушки, посмотреть что открывается при получении конкретного звания и прочее.
+            </p>
+            <p class="text">
+                Данный сайт сделан в качестве личного проекта для практики навыков разработки на фреймворке Django.
+            </p>
+            <p class="text">
+                <a class="link" href="https://github.com/Ilya-Pishchalnikov-2002/ProTankiWiki_djangoproject" target="_blank">
+                    Страница проекта на Github
+                </a><br>
+                <a class="link" href="https://wiki.pro-tanki.com/ru/Заглавная_страница" target="_blank">
+                    Оригинальная википедия ProTanki Online
+                </a>
+            </p>
+        </div>
 
         <div class="flex-menu" align="center">
             <a href="{% url 'cannons-main' %}" class="flex-menu-item">
