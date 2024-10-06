@@ -18,9 +18,9 @@ env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ipishcgk.beget.tech', 'www.ipishcgk.beget.tech']
 
 
 # Application definition
@@ -121,6 +121,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
+STATIC_ROOT = 'staticfiles/'
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static'

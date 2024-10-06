@@ -1,0 +1,212 @@
+.text {
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: justify;
+    margin: 30px;
+}
+
+.text_section {
+    font-size: 28px;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    margin: 18px;
+}
+
+.menu {
+    width: 90%;
+    padding: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 80px;
+    border: 1px solid grey;
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.button-back {
+    display: inline-block;
+    width: 170px;
+    border: 1px solid rgba(220, 220, 220, 0.8);
+    border-radius: 15px;
+    background-color: rgba(180, 180, 180, 0.1);
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    margin: 8px;
+    padding: 6px;
+}
+
+.button-back:hover {
+    background-color: rgba(180, 180, 180, 0.2);
+}
+
+.button-back:active {
+    background-color: rgba(180, 180, 180, 0.4);
+}
+
+.flex-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.flex-section-2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.section-inner-wrapper {
+    width: 500px;
+    margin: 15px;
+    padding: 5px;
+    border: 1px solid rgba(220, 220, 220, 0.8);
+    border-radius: 15px;
+    background-color: rgba(180, 180, 180, 0.1);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.item-link {
+    text-decoration-line: none;
+}
+
+.section-item {
+    margin: 15px;
+    padding: 10px;
+    border: 1px solid rgba(220, 220, 220, 0.8);
+    border-radius: 15px;
+    background-color: rgba(180, 180, 180, 0.1);
+    text-decoration-line: none;
+    transition-property: background-color;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+}
+
+.section-item:hover {
+    background-color: rgba(180, 180, 180, 0.2);
+}
+
+.section-item:active {
+    background-color: rgba(180, 180, 180, 0.4);
+}
+
+.section-item-2 {
+    margin: 15px;
+    padding: 20px;
+    border: 1px solid rgba(220, 220, 220, 0.8);
+    border-radius: 15px;
+    background-color: rgba(180, 180, 180, 0.1);
+    width: 200px;
+    height: 180px;
+    text-decoration-line: none;
+    transition-property: background-color;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+}
+
+.section-item-2:hover {
+    background-color: rgba(180, 180, 180, 0.2);
+}
+
+.section-item-2:active {
+    background-color: rgba(180, 180, 180, 0.4);
+}
+
+.section-item-3 {
+    margin: 15px;
+    padding: 20px;
+    border: 1px solid rgba(220, 220, 220, 0.8);
+    border-radius: 15px;
+    background-color: rgba(180, 180, 180, 0.1);
+    width: 200px;
+    height: 180px;
+}
+
+.text-description {
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 10px;
+}
+
+.section-item-name {
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    margin: 5px 0px;
+}
+
+.flex-section-kits {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.inner-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 3px 0px;
+}
+
+.section-item-kits {
+    width: 280px;
+    margin: 15px;
+    padding-bottom: 5px;
+    border: 1px solid rgba(220, 220, 220, 0.8);
+    border-radius: 15px;
+    background-color: rgba(180, 180, 180, 0.1);
+}
+
+.section-item-kits-text {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: left;
+    text-decoration-line: none;
+    margin: 10px;
+}
+
+.section-item-kits-link {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: left;
+    text-decoration-line: none;
+    margin: 8px;
+    transition-property: color;
+}
+
+.section-item-kits-link:hover {
+    color: rgb(34, 81, 212);
+}
+
+.section-item-kits-link:active {
+    color: rgb(54, 105, 249);
+}
+
+.section-item-kits-discount {
+    font-size: 18px;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    background-color: red;
+    border: 2px solid white;
+    border-radius: 20px;
+    margin: auto;
+    padding: 3px;
+}
