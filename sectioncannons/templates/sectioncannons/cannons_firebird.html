@@ -3,7 +3,7 @@
 
 {% block title %}Огнемёт{% endblock %}
 
-{% block add_css %}<link rel="stylesheet" href="{% static 'sectioncannons/css/cannons-detail_style.css' %}">
+{% block add_css %}<link rel="stylesheet" type="text/css" href="{% static 'sectioncannons/css/cannons-detail_style.css' %}">
 <style>
 body {
     background-image: url({% static 'main/img/tanki_bg.jpg' %});
@@ -57,7 +57,7 @@ body {
 					<tr>
 						<th>Требуемое звание</th>
 						{% for c in cannon_modifications %}
-						<td><a href="/звания/{{ c.rank_required.slug_name }}"><img src="{{ c.rank_required.rank_icon.url }}" title="{{ c.rank_required.rank_name }}"></a></td>
+						<td><a href="/ranks/{{ c.rank_required.slug_name }}"><img src="{{ c.rank_required.rank_icon.url }}" title="{{ c.rank_required.rank_name }}"></a></td>
 						{% endfor %}
 					</tr>
 					<tr>
@@ -124,7 +124,7 @@ body {
 
 			<div class="flex-section">
 				{% for paint in resist_paints %}
-				<a class="section-item" href="/краски/{{ paint.slug_name }}">
+				<a class="section-item" href="/paints/{{ paint.slug_name }}">
 					<h3 class="section-item-name">{{ paint.name }}</h3>
 					<div class="img_wrapper" align="center">
 						<img src="{{ paint.image_icon.url }}"><br>

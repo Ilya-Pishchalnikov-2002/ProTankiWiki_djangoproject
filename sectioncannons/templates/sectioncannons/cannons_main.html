@@ -3,7 +3,7 @@
 
 {% block title %}Пушки{% endblock %}
 
-{% block add_css %}<link rel="stylesheet" href="{% static 'sectioncannons/css/cannons-main_style.css' %}">
+{% block add_css %}<link rel="stylesheet" type="text/css" href="{% static 'sectioncannons/css/cannons-main_style.css' %}">
 <style>
 body {
     background-image: url({% static 'main/img/tanki_bg.jpg' %});
@@ -32,7 +32,7 @@ body {
 
             <div class="flex-section">
                 {% for cannon in close_combat %}
-                <a class="section-item" href="/пушки/{{ cannon.slug_name }}">
+                <a class="section-item" href="/cannons/{{ cannon.slug_name }}">
                     <div align="center">
                         <h3 class="section-item-name">{{ cannon.name }}</h3>
                         <br>
@@ -48,7 +48,7 @@ body {
 
             <div class="flex-section">
                 {% for cannon in short_range %}
-                <a class="section-item" href="/пушки/{{ cannon.slug_name }}">
+                <a class="section-item" href="/cannons/{{ cannon.slug_name }}">
                     <div align="center">
                         <h3 class="section-item-name">{{ cannon.name }}</h3>
                         <br>
@@ -64,7 +64,7 @@ body {
 
             <div class="flex-section">
                 {% for cannon in medium_range %}
-                <a class="section-item" href="/пушки/{{ cannon.slug_name }}">
+                <a class="section-item" href="/cannons/{{ cannon.slug_name }}">
                     <div align="center">
                         <h3 class="section-item-name">{{ cannon.name }}</h3>
                         <br>
@@ -80,7 +80,7 @@ body {
 
             <div class="flex-section">
                 {% for cannon in long_range %}
-                <a class="section-item" href="/пушки/{{ cannon.slug_name }}">
+                <a class="section-item" href="/cannons/{{ cannon.slug_name }}">
                     <div align="center">
                         <h3 class="section-item-name">{{ cannon.name }}</h3>
                         <br>

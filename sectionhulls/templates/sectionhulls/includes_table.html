@@ -19,7 +19,7 @@
         <tr>
             <th>Требуемое звание</th>
             {% for h in hull_modifications %}
-            <td><a href="/звания/{{ h.rank_required.slug_name }}"><img src="{{ h.rank_required.rank_icon.url }}" title="{{ h.rank_required.rank_name }}"></a></td>
+            <td><a href="/ranks/{{ h.rank_required.slug_name }}"><img src="{{ h.rank_required.rank_icon.url }}" title="{{ h.rank_required.rank_name }}"></a></td>
             {% endfor %}
         </tr>
         <tr>

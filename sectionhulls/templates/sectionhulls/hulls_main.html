@@ -3,7 +3,7 @@
 
 {% block title %}Корпуса{% endblock %}
 
-{% block add_css %}<link rel="stylesheet" href="{% static 'sectionhulls/css/hulls-main_style.css' %}">
+{% block add_css %}<link rel="stylesheet" type="text/css" href="{% static 'sectionhulls/css/hulls-main_style.css' %}">
 <style>
 body {
     background-image: url({% static 'main/img/tanki_bg.jpg' %});
@@ -32,7 +32,7 @@ body {
 
             <div class="flex-section">
                 {% for hull in light_hulls %}
-                <a class="section-item" href="/корпуса/{{ hull.slug_name }}">
+                <a class="section-item" href="/hulls/{{ hull.slug_name }}">
                     <div align="center">
                         <h3 class="section-item-name">{{ hull.name }}</h3>
                         <br>
@@ -48,7 +48,7 @@ body {
 
             <div class="flex-section">
                 {% for hull in medium_hulls %}
-                <a class="section-item" href="/корпуса/{{ hull.slug_name }}">
+                <a class="section-item" href="/hulls/{{ hull.slug_name }}">
                     <div align="center">
                         <h3 class="section-item-name">{{ hull.name }}</h3>
                         <br>
@@ -64,7 +64,7 @@ body {
 
             <div class="flex-section">
                 {% for hull in heavy_hulls %}
-                <a class="section-item" href="/корпуса/{{ hull.slug_name }}">
+                <a class="section-item" href="/hulls/{{ hull.slug_name }}">
                     <div align="center">
                         <h3 class="section-item-name">{{ hull.name }}</h3>
                         <br>

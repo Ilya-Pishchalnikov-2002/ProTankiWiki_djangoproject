@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.text import slugify
 
 
 class Rank(models.Model):
@@ -13,10 +12,6 @@ class Rank(models.Model):
     class Meta:
         verbose_name = "Звание"
         verbose_name_plural = "Звания"
-
-    def save(self, *args, **kwargs):
-        self.slug_name = slugify(self.rank_name, allow_unicode=True)
-        super(Rank, self).save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.rank_name}"

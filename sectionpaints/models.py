@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.text import slugify
 from sectionranks.models import Rank
 
 
@@ -30,10 +29,6 @@ class Paint(models.Model):
     class Meta:
         verbose_name = "Краска"
         verbose_name_plural = "Краски"
-
-    def save(self, *args, **kwargs):
-        self.slug_name = slugify(self.name, allow_unicode=True)
-        super(Paint, self).save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.name}"

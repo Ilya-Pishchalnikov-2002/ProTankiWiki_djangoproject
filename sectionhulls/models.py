@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.text import slugify
 from sectionranks.models import Rank
 
 __all__ = ["Hull", "Hunter", "Vasp", "Titan", "Dictator", "Hornet", "Mammoth", "Viking"]
@@ -20,10 +19,6 @@ class Hull(models.Model):
     class Meta:
         verbose_name = "Корпус"
         verbose_name_plural = "Корпуса"
-
-    def save(self, *args, **kwargs):
-        self.slug_name = slugify(self.name, allow_unicode=True)
-        super(Hull, self).save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.name}"

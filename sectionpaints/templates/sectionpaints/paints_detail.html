@@ -3,7 +3,7 @@
 
 {% block title %}{{ paint.name }}{% endblock %}
 
-{% block add_css %}<link rel="stylesheet" href="{% static 'sectionpaints/css/paints-detail_style.css' %}">
+{% block add_css %}<link rel="stylesheet" type="text/css" href="{% static 'sectionpaints/css/paints-detail_style.css' %}">
 <style>
 body {
     background-image: url({% static 'main/img/tanki_bg.jpg' %});
@@ -35,7 +35,7 @@ body {
                 <div>
                     <p class="text-description"><b>Название:</b> {{ paint.name }}</p>
                     <p class="text-description"><b>Стоимость:</b> {{ paint.cost }} <img src="{% static 'main/img/small_icons/cry.png' %}" title="Кристаллов"></p>
-                    <p class="text-description"><b>Доступна со звания:</b> <a href="/звания/{{ paint.rank_required.slug_name }}"><img class="icon" src="{{ paint.rank_required.rank_icon.url }}" title="{{ paint.rank_required.rank_name }}" width="40px"></a></p>
+                    <p class="text-description"><b>Доступна со звания:</b> <a href="/ranks/{{ paint.rank_required.slug_name }}"><img class="icon" src="{{ paint.rank_required.rank_icon.url }}" title="{{ paint.rank_required.rank_name }}" width="40px"></a></p>
                 </div>
             </div>
             <p class="text">

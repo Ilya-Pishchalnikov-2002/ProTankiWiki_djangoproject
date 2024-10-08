@@ -3,7 +3,7 @@
 
 {% block title %}Не найдена краска{% endblock %}
 
-{% block add_css %}<link rel="stylesheet" href="{% static 'sectionpaints/css/paints-detail_style.css' %}">
+{% block add_css %}<link rel="stylesheet" type="text/css" href="{% static 'sectionpaints/css/paints-detail_style.css' %}">
 <style>
 body {
     background-image: url({% static 'main/img/tanki_bg.jpg' %});
@@ -22,7 +22,7 @@ body {
         <div class="menu">
             <a href="{% url 'paints-main' %}"><div class="button-back">Вернуться к разделу <b>Краски</b></div></a>
 
-            <p class="text">Краска с названием "{{ paint }}" не найдена.</p>
+            <p class="text">Краска по url-запросу "{{ paint }}" не найдена.</p>
         </div>
     </main>
 </div>
